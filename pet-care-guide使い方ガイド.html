@@ -1,0 +1,1250 @@
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ハンガーtimes - 使い方ガイド</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary-color: #10b981;
+            --secondary-color: #f59e0b;
+            --accent-color: #fb923c;
+            --brown-color: #78350f;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fff2e5;
+            /* 白に変更 */
+        }
+
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            color: var(--primary-color) !important;
+            font-size: 1.5rem;
+        }
+
+        .nav-link {
+            color: var(--brown-color) !important;
+            font-weight: 500;
+            margin: 0 10px;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary-color) !important;
+        }
+
+        .page-header {
+            background:
+                linear-gradient(135deg,
+                    rgba(220, 252, 231, 0.88) 0%,
+                    rgba(254, 215, 170, 0.88) 100%),
+                url("img/re-_01.webp");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            padding: 60px 0;
+            border-radius: 0 0 50px 50px;
+            margin-bottom: 40px;
+        }
+
+
+        .category-card {
+            background: white;
+            border-radius: 25px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 3px solid transparent;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            border-color: var(--primary-color);
+        }
+
+        .category-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin: 0 auto 20px;
+        }
+
+        .guide-card {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .guide-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .guide-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .accordion-custom .accordion-item {
+            background: white;
+            border: none;
+            border-radius: 20px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .accordion-custom .accordion-button {
+            background-color: white;
+            color: var(--brown-color);
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 20px 25px;
+            border-radius: 20px;
+        }
+
+        .accordion-custom .accordion-button:not(.collapsed) {
+            background: linear-gradient(135deg, #dcfce7, #fed7aa);
+            color: var(--brown-color);
+            box-shadow: none;
+        }
+
+        .accordion-custom .accordion-button::after {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2378350f'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+        }
+
+        .accordion-custom .accordion-body {
+            padding: 25px;
+            background-color: #fefefe;
+        }
+
+        .step-card {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 80px;
+        }
+
+        .step-number {
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .tip-box {
+            background: linear-gradient(135deg, #dcfce7, #fed7aa);
+            border-radius: 20px;
+            padding: 25px;
+            margin: 20px 0;
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .warning-box {
+            background: #fef3c7;
+            border-radius: 20px;
+            padding: 25px;
+            margin: 20px 0;
+            border-left: 5px solid var(--secondary-color);
+        }
+
+        .checklist {
+            list-style: none;
+            padding: 0;
+        }
+
+        .checklist li {
+            padding: 12px 0;
+            padding-left: 35px;
+            position: relative;
+            border-bottom: 1px solid #f3f4f6;
+        }
+
+        .checklist li:last-child {
+            border-bottom: none;
+        }
+
+        .checklist li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 12px;
+            width: 25px;
+            height: 25px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .search-box {
+            background: white;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 8px;
+            margin-bottom: 30px;
+        }
+
+        .search-box input {
+            border: none;
+            padding: 12px 20px;
+            border-radius: 50px;
+            width: 100%;
+        }
+
+        .search-box input:focus {
+            outline: none;
+        }
+
+        .search-box button {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border: none;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+        }
+
+        .tag-badge {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--primary-color);
+            padding: 6px 15px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-block;
+            margin: 5px;
+        }
+
+        footer {
+            background-color: #8e7f7f;
+            color: #d8e1f1;
+            padding: 40px 0;
+            margin-top: 80px;
+            border-radius: 50px 50px 0 0;
+        }
+
+        .video-thumbnail {
+            width: 100%;
+            height: 200px;
+            background: #e5e7eb;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        /* レスポンシブ対応 */
+        @media (max-width: 768px) {
+            .step-card {
+                padding-left: 20px;
+                padding-top: 80px;
+            }
+
+            .step-number {
+                left: 50%;
+                transform: translateX(-50%);
+                top: 15px;
+            }
+
+            .category-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 2rem;
+            }
+
+            .guide-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ナビゲーションバー -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="bi bi-hanger"></i> ハンガーtimes
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="indexホーム.html">ホーム</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pet-guide-listハンガー図鑑.html">ハンガー図鑑</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#">使い方ガイド</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pet-guide-qaQ&A.html">Q&A</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pet-guide-form管理記録.html">管理記録</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pet-guide-recordレビュー.html">メンテナンス記録</a></li>
+                </ul>
+                <a href="login.html"
+                    class="btn btn-outline-success ms-3 rounded-pill fw-bold btn-login text-decoration-none">
+                    <i class="bi bi-person-circle"></i> ログイン
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ページヘッダー -->
+    <div class="page-header">
+        <div class="container">
+            <div class="text-center">
+                <h1 class="display-4 fw-bold mb-3" style="color: var(--brown-color);">
+                    <i class="bi bi-book"></i> 使い方ガイド
+                </h1>
+                <p class="lead" style="color: var(--brown-color);">
+                    初心者から上級者まで、ハンガーを使った生活を完全サポート
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- 検索ボックス -->
+        <div class="search-box">
+            <div class="d-flex align-items-center">
+                <input type="text" class="flex-grow-1" placeholder="使い方を検索...（例：スーツに最適なハンガー）">
+                <button type="button">
+                    <i class="bi bi-search"></i> 検索
+                </button>
+            </div>
+        </div>
+
+        <!-- カテゴリー選択 -->
+        <section class="mb-5">
+            <h2 class="text-center fw-bold mb-4" style="color: var(--brown-color);">
+                <i class="bi bi-grid-3x3-gap-fill"></i> カテゴリーから探す
+            </h2>
+
+            <div class="row g-4">
+                <div class="col-md-3 col-sm-6">
+                    <div class="category-card text-center">
+                        <div class="category-icon"
+                            style="background: rgba(16, 185, 129, 0.1); color: var(--primary-color);">
+                            <i class="bi bi-shirt"></i>
+                        </div>
+                        <h5 class="fw-bold mb-2" style="color: var(--brown-color);">シャツ用ハンガー</h5>
+                        <p class="text-muted small mb-0">15ガイド</p>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="category-card text-center">
+                        <div class="category-icon"
+                            style="background: rgba(251, 146, 60, 0.1); color: var(--accent-color);">
+                            <i class="bi bi-jacket"></i>
+                        </div>
+                        <h5 class="fw-bold mb-2" style="color: var(--brown-color);">ジャケット用ハンガー</h5>
+                        <p class="text-muted small mb-0">10ガイド</p>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="category-card text-center">
+                        <div class="category-icon" style="background: rgba(6, 182, 212, 0.1); color: #06b6d4;">
+                            <i class="bi bi-pants"></i>
+                        </div>
+                        <h5 class="fw-bold mb-2" style="color: var(--brown-color);">ズボン・スカート用</h5>
+                        <p class="text-muted small mb-0">12ガイド</p>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="category-card text-center">
+                        <div class="category-icon" style="background: rgba(139, 92, 246, 0.1); color: #8b5cf6;">
+                            <i class="bi bi-box-seam"></i>
+                        </div>
+                        <h5 class="fw-bold mb-2" style="color: var(--brown-color);">収納・整理</h5>
+                        <p class="text-muted small mb-0">8ガイド</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="row">
+            <!-- メインコンテンツ -->
+            <div class="col-lg-8">
+                <!-- 人気ガイド -->
+                <section class="mb-5">
+                    <h3 class="fw-bold mb-4" style="color: var(--brown-color);">
+                        <i class="bi bi-star-fill text-warning"></i> 人気のガイド
+                    </h3>
+
+                    <div class="guide-card">
+                        <div class="d-flex align-items-center">
+                            <div class="guide-icon"
+                                style="background: rgba(16, 185, 129, 0.1); color: var(--primary-color);">
+                                <i class="bi bi-hanger"></i>
+                            </div>
+                            <div class="flex-grow-1">
+                                <h5 class="fw-bold mb-1" style="color: var(--brown-color);">ハンガー選びの基本</h5>
+                                <p class="text-muted mb-2 small">服の種類に合ったハンガーの選び方を徹底解説</p>
+                                <div>
+                                    <span class="tag-badge">ハンガー</span>
+                                    <span class="tag-badge">初心者</span>
+                                    <span class="tag-badge">基本</span>
+                                </div>
+                            </div>
+                            <i class="bi bi-chevron-right fs-4" style="color: var(--primary-color);"></i>
+                        </div>
+                    </div>
+
+                    <div class="guide-card">
+                        <div class="d-flex align-items-center">
+                            <div class="guide-icon"
+                                style="background: rgba(251, 146, 60, 0.1); color: var(--accent-color);">
+                                <i class="bi bi-scissors"></i>
+                            </div>
+                            <div class="flex-grow-1">
+                                <h5 class="fw-bold mb-1" style="color: var(--brown-color);">ハンガーの正しい使い方</h5>
+                                <p class="text-muted mb-2 small">衣服を長持ちさせるハンガーの使い方のポイント</p>
+                                <div>
+                                    <span class="tag-badge">ハンガー</span>
+                                    <span class="tag-badge">衣服</span>
+                                </div>
+                            </div>
+                            <i class="bi bi-chevron-right fs-4" style="color: var(--primary-color);"></i>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 詳細ガイド: ハンガーの使い方 -->
+                <section class="mb-5">
+                    <h3 class="fw-bold mb-4" style="color: var(--brown-color);">
+                        <i class="bi bi-book-half"></i> ハンガーの使い方 - 完全ガイド
+                    </h3>
+
+                    <div class="accordion accordion-custom" id="hangerGuideAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#step1">
+                                    <i class="bi bi-1-circle-fill me-2" style="color: var(--primary-color);"></i>
+                                    ハンガーを準備する
+                                </button>
+                            </h2>
+                            <div id="step1" class="accordion-collapse collapse show"
+                                data-bs-parent="#hangerGuideAccordion">
+                                <div class="accordion-body">
+                                    <h5 class="fw-bold mb-3">必要な準備</h5>
+                                    <ul class="checklist">
+                                        <li>適切な種類のハンガー</li>
+                                        <li>収納スペース</li>
+                                    </ul>
+
+                                    <div class="tip-box">
+                                        <h6 class="fw-bold mb-2">
+                                            <i class="bi bi-lightbulb-fill text-warning"></i> ワンポイントアドバイス
+                                        </h6>
+                                        <p class="mb-0">
+                                            服の種類に合わせてハンガーを揃えると、衣類の型崩れを防げます。
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#step2">
+                                    <i class="bi bi-2-circle-fill me-2" style="color: var(--primary-color);"></i>
+                                    衣服を掛ける
+                                </button>
+                            </h2>
+                            <div id="step2" class="accordion-collapse collapse" data-bs-parent="#hangerGuideAccordion">
+                                <div class="accordion-body">
+                                    <div class="step-card">
+                                        <div class="step-number">1</div>
+                                        <h6 class="fw-bold mb-2">シャツ・ブラウス</h6>
+                                        <p class="mb-0">肩幅に合わせてハンガーにかける</p>
+                                    </div>
+
+                                    <div class="step-card">
+                                        <div class="step-number">2</div>
+                                        <h6 class="fw-bold mb-2">ジャケット・コート</h6>
+                                        <p class="mb-0">厚みのあるハンガーで型崩れを防ぐ</p>
+                                    </div>
+
+                                    <div class="warning-box">
+                                        <h6 class="fw-bold mb-2">
+                                            <i class="bi bi-exclamation-triangle-fill text-warning"></i> 注意
+                                        </h6>
+                                        <ul class="mb-0">
+                                            <li>ハンガーに衣服を詰め込みすぎない</li>
+                                            <li>地面に触れないように掛ける</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- サイドバー -->
+            <div class="col-lg-4">
+                <!-- 動画ガイド -->
+                <div class="guide-card mb-4">
+                    <h5 class="fw-bold mb-3" style="color: var(--brown-color);">
+                        <i class="bi bi-play-circle"></i> 動画ガイド
+                    </h5>
+                    <div class="video-thumbnail">
+                        <i class="bi bi-play-circle-fill"></i>
+                    </div>
+                    <h6 class="fw-bold mb-2">ハンガーの正しい掛け方</h6>
+                    <p class="text-muted small mb-3">再生時間: 12:45</p>
+                    <button class="btn btn-primary w-100 rounded-pill">
+                        <i class="bi bi-play-fill"></i> 再生する
+                    </button>
+                </div>
+
+                <!-- おすすめ記事 -->
+                <div class="guide-card mb-4">
+                    <h5 class="fw-bold mb-3" style="color: var(--brown-color);">
+                        <i class="bi bi-bookmark-star"></i> おすすめ記事
+                    </h5>
+                    <div class="mb-3 pb-3 border-bottom">
+                        <h6 class="fw-bold mb-1 small">ハンガーの種類一覧</h6>
+                        <p class="text-muted small mb-0">用途別のハンガーを知ろう</p>
+                    </div>
+                    <div class="mb-3 pb-3 border-bottom">
+                        <h6 class="fw-bold mb-1 small">ハンガーの手入れ方法</h6>
+                        <p class="text-muted small mb-0">長持ちさせるコツ</p>
+                    </div>
+                    <div class="mb-0">
+                        <h6 class="fw-bold mb-1 small">収納アイデア</h6>
+                        <p class="text-muted small mb-0">クローゼット整理の工夫</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- フッター -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5 class="fw-bold mb-3">
+                        <i class="bi bi-heart-fill text-danger"></i> ハンガーtimes
+                    </h5>
+                    <p>ハンガーで衣服と暮らしを応援する情報サイト</p>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h6 class="fw-bold mb-3">サイト情報</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white text-decoration-none">About</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">利用規約</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">プライバシー</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h6 class="fw-bold mb-3">サポート</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white text-decoration-none">ヘルプ</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">お問い合わせ</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h6 class="fw-bold mb-3">フォローする</h6>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-white fs-4"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="text-white fs-4"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="text-white fs-4"><i class="bi bi-youtube"></i></a>
+                        <a href="#" class="text-white fs-4"><i class="bi bi-facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-light">
+            <p class="text-center mb-0">&copy; 2024 PetLife. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // アコーディオンの動作確認
+        document.addEventListener('DOMContentLoaded', function () {
+            console.log('飼い方ガイドページが読み込まれました');
+        });
+    </script>
+</body>
+
+=======
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ハンガーtimes - 使い方ガイド</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary-color: #10b981;
+            --secondary-color: #f59e0b;
+            --accent-color: #fb923c;
+            --brown-color: #78350f;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fff2e5;
+            /* 白に変更 */
+        }
+
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            color: var(--primary-color) !important;
+            font-size: 1.5rem;
+        }
+
+        .nav-link {
+            color: var(--brown-color) !important;
+            font-weight: 500;
+            margin: 0 10px;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary-color) !important;
+        }
+
+        .page-header {
+            background:
+                linear-gradient(135deg,
+                    rgba(220, 252, 231, 0.88) 0%,
+                    rgba(254, 215, 170, 0.88) 100%),
+                url("img/re-_01.webp");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            padding: 60px 0;
+            border-radius: 0 0 50px 50px;
+            margin-bottom: 40px;
+        }
+
+
+        .category-card {
+            background: white;
+            border-radius: 25px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 3px solid transparent;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            border-color: var(--primary-color);
+        }
+
+        .category-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin: 0 auto 20px;
+        }
+
+        .guide-card {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .guide-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .guide-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .accordion-custom .accordion-item {
+            background: white;
+            border: none;
+            border-radius: 20px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .accordion-custom .accordion-button {
+            background-color: white;
+            color: var(--brown-color);
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 20px 25px;
+            border-radius: 20px;
+        }
+
+        .accordion-custom .accordion-button:not(.collapsed) {
+            background: linear-gradient(135deg, #dcfce7, #fed7aa);
+            color: var(--brown-color);
+            box-shadow: none;
+        }
+
+        .accordion-custom .accordion-button::after {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2378350f'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+        }
+
+        .accordion-custom .accordion-body {
+            padding: 25px;
+            background-color: #fefefe;
+        }
+
+        .step-card {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 80px;
+        }
+
+        .step-number {
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .tip-box {
+            background: linear-gradient(135deg, #dcfce7, #fed7aa);
+            border-radius: 20px;
+            padding: 25px;
+            margin: 20px 0;
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .warning-box {
+            background: #fef3c7;
+            border-radius: 20px;
+            padding: 25px;
+            margin: 20px 0;
+            border-left: 5px solid var(--secondary-color);
+        }
+
+        .checklist {
+            list-style: none;
+            padding: 0;
+        }
+
+        .checklist li {
+            padding: 12px 0;
+            padding-left: 35px;
+            position: relative;
+            border-bottom: 1px solid #f3f4f6;
+        }
+
+        .checklist li:last-child {
+            border-bottom: none;
+        }
+
+        .checklist li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 12px;
+            width: 25px;
+            height: 25px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .search-box {
+            background: white;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 8px;
+            margin-bottom: 30px;
+        }
+
+        .search-box input {
+            border: none;
+            padding: 12px 20px;
+            border-radius: 50px;
+            width: 100%;
+        }
+
+        .search-box input:focus {
+            outline: none;
+        }
+
+        .search-box button {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border: none;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+        }
+
+        .tag-badge {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--primary-color);
+            padding: 6px 15px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-block;
+            margin: 5px;
+        }
+
+        footer {
+            background-color: #8e7f7f;
+            color: #d8e1f1;
+            padding: 40px 0;
+            margin-top: 80px;
+            border-radius: 50px 50px 0 0;
+        }
+
+        .video-thumbnail {
+            width: 100%;
+            height: 200px;
+            background: #e5e7eb;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        /* レスポンシブ対応 */
+        @media (max-width: 768px) {
+            .step-card {
+                padding-left: 20px;
+                padding-top: 80px;
+            }
+
+            .step-number {
+                left: 50%;
+                transform: translateX(-50%);
+                top: 15px;
+            }
+
+            .category-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 2rem;
+            }
+
+            .guide-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ナビゲーションバー -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="bi bi-hanger"></i> ハンガーtimes
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="indexホーム.html">ホーム</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pet-guide-listハンガー図鑑.html">ハンガー図鑑</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#">使い方ガイド</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pet-guide-qaQ&A.html">Q&A</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pet-guide-form管理記録.html">管理記録</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pet-guide-recordレビュー.html">メンテナンス記録</a></li>
+                </ul>
+                <a href="login.html"
+                    class="btn btn-outline-success ms-3 rounded-pill fw-bold btn-login text-decoration-none">
+                    <i class="bi bi-person-circle"></i> ログイン
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ページヘッダー -->
+    <div class="page-header">
+        <div class="container">
+            <div class="text-center">
+                <h1 class="display-4 fw-bold mb-3" style="color: var(--brown-color);">
+                    <i class="bi bi-book"></i> 使い方ガイド
+                </h1>
+                <p class="lead" style="color: var(--brown-color);">
+                    初心者から上級者まで、ハンガーを使った生活を完全サポート
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- 検索ボックス -->
+        <div class="search-box">
+            <div class="d-flex align-items-center">
+                <input type="text" class="flex-grow-1" placeholder="使い方を検索...（例：スーツに最適なハンガー）">
+                <button type="button">
+                    <i class="bi bi-search"></i> 検索
+                </button>
+            </div>
+        </div>
+
+        <!-- カテゴリー選択 -->
+        <section class="mb-5">
+            <h2 class="text-center fw-bold mb-4" style="color: var(--brown-color);">
+                <i class="bi bi-grid-3x3-gap-fill"></i> カテゴリーから探す
+            </h2>
+
+            <div class="row g-4">
+                <div class="col-md-3 col-sm-6">
+                    <div class="category-card text-center">
+                        <div class="category-icon"
+                            style="background: rgba(16, 185, 129, 0.1); color: var(--primary-color);">
+                            <i class="bi bi-shirt"></i>
+                        </div>
+                        <h5 class="fw-bold mb-2" style="color: var(--brown-color);">シャツ用ハンガー</h5>
+                        <p class="text-muted small mb-0">15ガイド</p>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="category-card text-center">
+                        <div class="category-icon"
+                            style="background: rgba(251, 146, 60, 0.1); color: var(--accent-color);">
+                            <i class="bi bi-jacket"></i>
+                        </div>
+                        <h5 class="fw-bold mb-2" style="color: var(--brown-color);">ジャケット用ハンガー</h5>
+                        <p class="text-muted small mb-0">10ガイド</p>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="category-card text-center">
+                        <div class="category-icon" style="background: rgba(6, 182, 212, 0.1); color: #06b6d4;">
+                            <i class="bi bi-pants"></i>
+                        </div>
+                        <h5 class="fw-bold mb-2" style="color: var(--brown-color);">ズボン・スカート用</h5>
+                        <p class="text-muted small mb-0">12ガイド</p>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="category-card text-center">
+                        <div class="category-icon" style="background: rgba(139, 92, 246, 0.1); color: #8b5cf6;">
+                            <i class="bi bi-box-seam"></i>
+                        </div>
+                        <h5 class="fw-bold mb-2" style="color: var(--brown-color);">収納・整理</h5>
+                        <p class="text-muted small mb-0">8ガイド</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="row">
+            <!-- メインコンテンツ -->
+            <div class="col-lg-8">
+                <!-- 人気ガイド -->
+                <section class="mb-5">
+                    <h3 class="fw-bold mb-4" style="color: var(--brown-color);">
+                        <i class="bi bi-star-fill text-warning"></i> 人気のガイド
+                    </h3>
+
+                    <div class="guide-card">
+                        <div class="d-flex align-items-center">
+                            <div class="guide-icon"
+                                style="background: rgba(16, 185, 129, 0.1); color: var(--primary-color);">
+                                <i class="bi bi-hanger"></i>
+                            </div>
+                            <div class="flex-grow-1">
+                                <h5 class="fw-bold mb-1" style="color: var(--brown-color);">ハンガー選びの基本</h5>
+                                <p class="text-muted mb-2 small">服の種類に合ったハンガーの選び方を徹底解説</p>
+                                <div>
+                                    <span class="tag-badge">ハンガー</span>
+                                    <span class="tag-badge">初心者</span>
+                                    <span class="tag-badge">基本</span>
+                                </div>
+                            </div>
+                            <i class="bi bi-chevron-right fs-4" style="color: var(--primary-color);"></i>
+                        </div>
+                    </div>
+
+                    <div class="guide-card">
+                        <div class="d-flex align-items-center">
+                            <div class="guide-icon"
+                                style="background: rgba(251, 146, 60, 0.1); color: var(--accent-color);">
+                                <i class="bi bi-scissors"></i>
+                            </div>
+                            <div class="flex-grow-1">
+                                <h5 class="fw-bold mb-1" style="color: var(--brown-color);">ハンガーの正しい使い方</h5>
+                                <p class="text-muted mb-2 small">衣服を長持ちさせるハンガーの使い方のポイント</p>
+                                <div>
+                                    <span class="tag-badge">ハンガー</span>
+                                    <span class="tag-badge">衣服</span>
+                                </div>
+                            </div>
+                            <i class="bi bi-chevron-right fs-4" style="color: var(--primary-color);"></i>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 詳細ガイド: ハンガーの使い方 -->
+                <section class="mb-5">
+                    <h3 class="fw-bold mb-4" style="color: var(--brown-color);">
+                        <i class="bi bi-book-half"></i> ハンガーの使い方 - 完全ガイド
+                    </h3>
+
+                    <div class="accordion accordion-custom" id="hangerGuideAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#step1">
+                                    <i class="bi bi-1-circle-fill me-2" style="color: var(--primary-color);"></i>
+                                    ハンガーを準備する
+                                </button>
+                            </h2>
+                            <div id="step1" class="accordion-collapse collapse show"
+                                data-bs-parent="#hangerGuideAccordion">
+                                <div class="accordion-body">
+                                    <h5 class="fw-bold mb-3">必要な準備</h5>
+                                    <ul class="checklist">
+                                        <li>適切な種類のハンガー</li>
+                                        <li>収納スペース</li>
+                                    </ul>
+
+                                    <div class="tip-box">
+                                        <h6 class="fw-bold mb-2">
+                                            <i class="bi bi-lightbulb-fill text-warning"></i> ワンポイントアドバイス
+                                        </h6>
+                                        <p class="mb-0">
+                                            服の種類に合わせてハンガーを揃えると、衣類の型崩れを防げます。
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#step2">
+                                    <i class="bi bi-2-circle-fill me-2" style="color: var(--primary-color);"></i>
+                                    衣服を掛ける
+                                </button>
+                            </h2>
+                            <div id="step2" class="accordion-collapse collapse" data-bs-parent="#hangerGuideAccordion">
+                                <div class="accordion-body">
+                                    <div class="step-card">
+                                        <div class="step-number">1</div>
+                                        <h6 class="fw-bold mb-2">シャツ・ブラウス</h6>
+                                        <p class="mb-0">肩幅に合わせてハンガーにかける</p>
+                                    </div>
+
+                                    <div class="step-card">
+                                        <div class="step-number">2</div>
+                                        <h6 class="fw-bold mb-2">ジャケット・コート</h6>
+                                        <p class="mb-0">厚みのあるハンガーで型崩れを防ぐ</p>
+                                    </div>
+
+                                    <div class="warning-box">
+                                        <h6 class="fw-bold mb-2">
+                                            <i class="bi bi-exclamation-triangle-fill text-warning"></i> 注意
+                                        </h6>
+                                        <ul class="mb-0">
+                                            <li>ハンガーに衣服を詰め込みすぎない</li>
+                                            <li>地面に触れないように掛ける</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- サイドバー -->
+            <div class="col-lg-4">
+                <!-- 動画ガイド -->
+                <div class="guide-card mb-4">
+                    <h5 class="fw-bold mb-3" style="color: var(--brown-color);">
+                        <i class="bi bi-play-circle"></i> 動画ガイド
+                    </h5>
+                    <div class="video-thumbnail">
+                        <i class="bi bi-play-circle-fill"></i>
+                    </div>
+                    <h6 class="fw-bold mb-2">ハンガーの正しい掛け方</h6>
+                    <p class="text-muted small mb-3">再生時間: 12:45</p>
+                    <button class="btn btn-primary w-100 rounded-pill">
+                        <i class="bi bi-play-fill"></i> 再生する
+                    </button>
+                </div>
+
+                <!-- おすすめ記事 -->
+                <div class="guide-card mb-4">
+                    <h5 class="fw-bold mb-3" style="color: var(--brown-color);">
+                        <i class="bi bi-bookmark-star"></i> おすすめ記事
+                    </h5>
+                    <div class="mb-3 pb-3 border-bottom">
+                        <h6 class="fw-bold mb-1 small">ハンガーの種類一覧</h6>
+                        <p class="text-muted small mb-0">用途別のハンガーを知ろう</p>
+                    </div>
+                    <div class="mb-3 pb-3 border-bottom">
+                        <h6 class="fw-bold mb-1 small">ハンガーの手入れ方法</h6>
+                        <p class="text-muted small mb-0">長持ちさせるコツ</p>
+                    </div>
+                    <div class="mb-0">
+                        <h6 class="fw-bold mb-1 small">収納アイデア</h6>
+                        <p class="text-muted small mb-0">クローゼット整理の工夫</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- フッター -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5 class="fw-bold mb-3">
+                        <i class="bi bi-heart-fill text-danger"></i> ハンガーtimes
+                    </h5>
+                    <p>ハンガーで衣服と暮らしを応援する情報サイト</p>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h6 class="fw-bold mb-3">サイト情報</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white text-decoration-none">About</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">利用規約</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">プライバシー</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h6 class="fw-bold mb-3">サポート</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white text-decoration-none">ヘルプ</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">お問い合わせ</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h6 class="fw-bold mb-3">フォローする</h6>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-white fs-4"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="text-white fs-4"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="text-white fs-4"><i class="bi bi-youtube"></i></a>
+                        <a href="#" class="text-white fs-4"><i class="bi bi-facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-light">
+            <p class="text-center mb-0">&copy; 2024 PetLife. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // アコーディオンの動作確認
+        document.addEventListener('DOMContentLoaded', function () {
+            console.log('飼い方ガイドページが読み込まれました');
+        });
+    </script>
+</body>
+
+>>>>>>> 7f7e55f (課題)
+</html>

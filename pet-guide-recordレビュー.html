@@ -1,0 +1,1168 @@
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ハンガーtimes - メンテナンス記録</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary-color: #10b981;
+            --secondary-color: #f59e0b;
+            --accent-color: #fb923c;
+            --brown-color: #78350f;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+            background-color: #fefae0;
+        }
+
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            color: var(--primary-color) !important;
+            font-size: 1.5rem;
+        }
+
+        .nav-link {
+            color: var(--brown-color) !important;
+            font-weight: 500;
+            margin: 0 10px;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary-color) !important;
+        }
+
+        .page-header {
+            background:
+                linear-gradient(135deg,
+                    rgba(220, 252, 231, 0.88) 0%,
+                    rgba(254, 215, 170, 0.88) 100%),
+                url("img/re-_01.webp");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            padding: 60px 0;
+            border-radius: 0 0 50px 50px;
+            margin-bottom: 40px;
+        }
+
+        .pet-profile-card {
+            background: white;
+            border-radius: 30px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .pet-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 20px;
+            object-fit: cover;
+            border: 5px solid var(--primary-color);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-badge {
+            background: rgba(139, 94, 52, 0.1);
+            color: var(--primary-color);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            display: inline-block;
+            margin: 5px;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 1.8rem;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--brown-color);
+        }
+
+        .progress-card {
+            background: white;
+            border-radius: 25px;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            margin-bottom: 20px;
+        }
+
+        .progress-custom {
+            height: 25px;
+            border-radius: 50px;
+            background-color: #f3f4f6;
+        }
+
+        .progress-bar-custom {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50px;
+            font-weight: bold;
+        }
+
+        .record-table {
+            background: white;
+            border-radius: 25px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+        }
+
+        .table-custom thead {
+            background: linear-gradient(135deg, #faedcd, #e9edc9);
+        }
+
+        .event-badge {
+            padding: 6px 15px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        /* メンテナンス種類別の色 */
+        .event-checkup {
+            background-color: #dbeafe;
+            color: #1e40af;
+        }
+
+        /* 点検 */
+        .event-vaccine {
+            background-color: #fef3c7;
+            color: #92400e;
+        }
+
+        /* オイル/塗装 */
+        .event-weight {
+            background-color: #dcfce7;
+            color: #166534;
+        }
+
+        /* 除湿剤交換 */
+        .event-medication {
+            background-color: #fce7f3;
+            color: #9f1239;
+        }
+
+        /* 修理 */
+
+        .btn-add-record {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border: none;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .timeline-card {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 60px;
+        }
+
+        .timeline-icon {
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        footer {
+            background-color: var(--brown-color);
+            color: white;
+            padding: 40px 0;
+            margin-top: 80px;
+            border-radius: 50px 50px 0 0;
+        }
+
+        .filter-btn {
+            padding: 8px 18px;
+            border-radius: 50px;
+            border: 1px solid #ddd;
+            background: white;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+
+        .filter-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="bi bi-hanger"></i> ハンガーtimes
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="indexホーム.html">ホーム</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pet-guide-listハンガー図鑑.html">ハンガー図鑑</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pet-care-guide使い方ガイド.html">使い方ガイド</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pet-guide-qaQ&A.html">Q&A</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pet-guide-form管理記録.html">管理記録</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#">メンテナンス記録</a></li>
+                </ul>
+                <a href="login.html" class="btn btn-outline-success ms-3 rounded-pill fw-bold btn-login text-decoration-none">
+                    <i class="bi bi-person-circle"></i> ログイン
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <div class="container text-center">
+            <h1 class="display-4 fw-bold mb-3" style="color: var(--brown-color);">
+                <i class="bi bi-tools"></i> コレクション・メンテナンス記録
+            </h1>
+            <p class="lead" style="color: var(--brown-color);">愛用のハンガーを一生モノに。状態管理と手入れのログ</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="pet-profile-card">
+            <div class="row align-items-center">
+                <div class="col-md-3 text-center mb-3 mb-md-0">
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=200&h=200&auto=format&fit=crop"
+                        alt="木製ハンガー" class="pet-avatar">
+                    <h4 class="mt-3 mb-2 fw-bold" style="color: var(--brown-color);">プレミアム・オーク</h4>
+                    <p class="text-muted mb-0">ハンドメイド木製 12本セット</p>
+                </div>
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="col-6 col-md-3 mb-3">
+                            <small class="text-muted d-block">使用年数</small>
+                            <strong class="h5" style="color: var(--brown-color);">5年2ヶ月</strong>
+                        </div>
+                        <div class="col-6 col-md-3 mb-3">
+                            <small class="text-muted d-block">総本数</small>
+                            <strong class="h5" style="color: var(--brown-color);">48本</strong>
+                        </div>
+                        <div class="col-6 col-md-3 mb-3">
+                            <small class="text-muted d-block">最終手入れ</small>
+                            <strong class="h5" style="color: var(--brown-color);">2024/11/01</strong>
+                        </div>
+                        <div class="col-6 col-md-3 mb-3">
+                            <small class="text-muted d-block">次回の防虫剤交換</small>
+                            <strong class="h5" style="color: #e63946;">残り15日</strong>
+                        </div>
+                    </div>
+                    <div class="mt-2">
+                        <span class="info-badge"><i class="bi bi-check-circle"></i> 状態: 良好</span>
+                        <span class="info-badge"><i class="bi bi-droplet"></i> 湿度管理: 45% (最適)</span>
+                        <span class="info-badge"><i class="bi bi-shield-lock"></i> 防虫加工済み</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4 mb-4">
+            <div class="col-md-3 col-sm-6">
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: rgba(139, 94, 52, 0.1); color: var(--primary-color);">
+                        <i class="bi bi-box-seam"></i>
+                    </div>
+                    <div class="stat-number">12</div>
+                    <p class="text-muted mb-0">今月追加した本数</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: rgba(245, 158, 11, 0.1); color: var(--secondary-color);">
+                        <i class="bi bi-stars"></i>
+                    </div>
+                    <div class="stat-number">95%</div>
+                    <p class="text-muted mb-0">クローゼット統一率</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;">
+                        <i class="bi bi-hammer"></i>
+                    </div>
+                    <div class="stat-number">3回</div>
+                    <p class="text-muted mb-0">リペア実施数</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: rgba(236, 72, 153, 0.1); color: #ec4899;">
+                        <i class="bi bi-currency-yen"></i>
+                    </div>
+                    <div class="stat-number">¥42,000</div>
+                    <p class="text-muted mb-0">総投資額</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4 mb-4">
+            <div class="col-md-6">
+                <div class="progress-card">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h5 class="fw-bold mb-0" style="color: var(--brown-color);">
+                            <i class="bi bi-water text-info"></i> クローゼット除湿容量
+                        </h5>
+                        <span class="fw-bold">85% / 100%</span>
+                    </div>
+                    <div class="progress progress-custom">
+                        <div class="progress-bar progress-bar-custom" style="width: 85%">まもなく交換</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="progress-card">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h5 class="fw-bold mb-0" style="color: var(--brown-color);">
+                            <i class="bi bi-percent text-success"></i> 収納スペース効率
+                        </h5>
+                        <span class="fw-bold">60%</span>
+                    </div>
+                    <div class="progress progress-custom">
+                        <div class="progress-bar bg-success" style="width: 60%">余裕あり</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="record-table">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="fw-bold mb-0" style="color: var(--brown-color);">メンテナンス履歴</h4>
+                        <button class="btn btn-add-record">新規記録</button>
+                    </div>
+
+                    <div class="mb-3">
+                        <button class="filter-btn active">すべて</button>
+                        <button class="filter-btn">オイル塗布</button>
+                        <button class="filter-btn">金具調整</button>
+                        <button class="filter-btn">除湿剤</button>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="table table-custom">
+                            <thead>
+                                <tr>
+                                    <th>日付</th>
+                                    <th>項目</th>
+                                    <th>対象</th>
+                                    <th>備考</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>2024/11/18</td>
+                                    <td><span class="event-badge event-weight">除湿剤</span></td>
+                                    <td>メインクローゼット</td>
+                                    <td>大容量タイプへ変更</td>
+                                </tr>
+                                <tr>
+                                    <td>2024/11/01</td>
+                                    <td><span class="event-badge event-vaccine">オイル</span></td>
+                                    <td>オーク材シリーズ</td>
+                                    <td>蜜蝋ワックスで磨き上げ</td>
+                                </tr>
+                                <tr>
+                                    <td>2024/10/15</td>
+                                    <td><span class="event-badge event-medication">修理</span></td>
+                                    <td>フック部</td>
+                                    <td>緩みの増し締め実施</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="progress-card">
+                    <h5 class="fw-bold mb-3"><i class="bi bi-lightning"></i> クイック・アクション</h5>
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-outline-brown rounded-pill"
+                            style="border-color: var(--primary-color); color: var(--primary-color);">お手入れ方法を見る</button>
+                        <button class="btn btn-outline-dark rounded-pill">新しいハンガーを探す</button>
+                        <button class="btn btn-outline-danger rounded-pill">期限切れ防虫剤をチェック</button>
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <div class="timeline-card">
+                        <div class="timeline-icon bg-primary"><i class="bi bi-camera"></i></div>
+                        <div class="timeline-date">昨日</div>
+                        <h6 class="fw-bold mb-1">コレクション写真を追加</h6>
+                        <p class="text-muted small">冬物コート用に厚型ハンガーを導入</p>
+                    </div>
+                    <div class="timeline-card">
+                        <div class="timeline-icon bg-warning"><i class="bi bi-exclamation-circle"></i></div>
+                        <div class="timeline-date">3日前</div>
+                        <h6 class="fw-bold mb-1">点検アラート</h6>
+                        <p class="text-muted small">湿度が55%を超えました。換気を推奨します。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5 class="fw-bold mb-3">
+                        <i class="bi bi-heart-fill text-danger"></i> ハンガーtimes
+                    </h5>
+                    <p>ハンガーで衣服と暮らしを応援する情報サイト</p>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h6 class="fw-bold mb-3">サイト情報</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white text-decoration-none">About</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">利用規約</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">プライバシー</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h6 class="fw-bold mb-3">サポート</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white text-decoration-none">ヘルプ</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">お問い合わせ</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h6 class="fw-bold mb-3">フォローする</h6>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-white fs-4"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="text-white fs-4"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="text-white fs-4"><i class="bi bi-youtube"></i></a>
+                        <a href="#" class="text-white fs-4"><i class="bi bi-facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-light">
+            <p class="text-center mb-0">&copy; 2024 PetLife. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // --- 1. フィルタリング機能 ---
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const tableRows = document.querySelectorAll('.table-custom tbody tr');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    // アクティブクラスの切り替え
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+
+                    const filterValue = this.textContent.trim();
+
+                    tableRows.forEach(row => {
+                        const category = row.querySelector('.event-badge').textContent.trim();
+                        if (filterValue === 'すべて' || category === filterValue) {
+                            row.style.display = '';
+                        } else {
+                            row.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // --- 2. 新規レコード追加（デモ用） ---
+            const addBtn = document.querySelector('.btn-add-record');
+            const tableBody = document.querySelector('.table-custom tbody');
+
+            addBtn.addEventListener('click', function () {
+                const today = new Date().toLocaleDateString('ja-JP');
+
+                // 実際には入力フォームから取得しますが、ここではデモ用にランダム追加
+                const newRow = document.createElement('tr');
+                newRow.innerHTML = `
+            <td>${today}</td>
+            <td><span class="event-badge event-checkup">点検</span></td>
+            <td>全コレクション</td>
+            <td>定期的な外観チェック完了</td>
+        `;
+
+                // 先頭に追加
+                tableBody.prepend(newRow);
+
+                // 統計情報の数字をアニメーションで増やす
+                updateStatNumber('.stat-card:first-child .stat-number');
+                alert('新しいメンテナンス記録を保存しました！');
+            });
+
+            // --- 3. 統計数値の更新アニメーション ---
+            function updateStatNumber(selector) {
+                const el = document.querySelector(selector);
+                let currentNum = parseInt(el.textContent);
+                el.textContent = currentNum + 1;
+                el.style.color = 'var(--primary-color)';
+                setTimeout(() => { el.style.color = 'var(--brown-color)'; }, 500);
+            }
+
+            // --- 4. 進捗バーのインタラクティブ効果 ---
+            // 例：除湿剤のバーをクリックすると「交換」シミュレーション
+            const progressCard = document.querySelector('.progress-card');
+            progressCard.style.cursor = 'pointer';
+            progressCard.addEventListener('click', function () {
+                const bar = this.querySelector('.progress-bar');
+                const label = this.querySelector('.fw-bold:last-child');
+
+                bar.style.width = '0%';
+                bar.textContent = '交換完了';
+                label.textContent = '0% / 100%';
+
+                setTimeout(() => {
+                    bar.style.width = '10%';
+                    label.textContent = '10% / 100%';
+                    bar.textContent = '新品';
+                }, 1000);
+            });
+
+            // --- 5. ログ出力（動作確認用） ---
+            console.log("Hanger Times: メンテナンス管理システムが正常に起動しました。");
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+=======
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ハンガーtimes - メンテナンス記録</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary-color: #10b981;
+            --secondary-color: #f59e0b;
+            --accent-color: #fb923c;
+            --brown-color: #78350f;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+            background-color: #fefae0;
+        }
+
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            color: var(--primary-color) !important;
+            font-size: 1.5rem;
+        }
+
+        .nav-link {
+            color: var(--brown-color) !important;
+            font-weight: 500;
+            margin: 0 10px;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary-color) !important;
+        }
+
+        .page-header {
+            background:
+                linear-gradient(135deg,
+                    rgba(220, 252, 231, 0.88) 0%,
+                    rgba(254, 215, 170, 0.88) 100%),
+                url("img/re-_01.webp");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            padding: 60px 0;
+            border-radius: 0 0 50px 50px;
+            margin-bottom: 40px;
+        }
+
+        .pet-profile-card {
+            background: white;
+            border-radius: 30px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .pet-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 20px;
+            object-fit: cover;
+            border: 5px solid var(--primary-color);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-badge {
+            background: rgba(139, 94, 52, 0.1);
+            color: var(--primary-color);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            display: inline-block;
+            margin: 5px;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 1.8rem;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--brown-color);
+        }
+
+        .progress-card {
+            background: white;
+            border-radius: 25px;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            margin-bottom: 20px;
+        }
+
+        .progress-custom {
+            height: 25px;
+            border-radius: 50px;
+            background-color: #f3f4f6;
+        }
+
+        .progress-bar-custom {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50px;
+            font-weight: bold;
+        }
+
+        .record-table {
+            background: white;
+            border-radius: 25px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+        }
+
+        .table-custom thead {
+            background: linear-gradient(135deg, #faedcd, #e9edc9);
+        }
+
+        .event-badge {
+            padding: 6px 15px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        /* メンテナンス種類別の色 */
+        .event-checkup {
+            background-color: #dbeafe;
+            color: #1e40af;
+        }
+
+        /* 点検 */
+        .event-vaccine {
+            background-color: #fef3c7;
+            color: #92400e;
+        }
+
+        /* オイル/塗装 */
+        .event-weight {
+            background-color: #dcfce7;
+            color: #166534;
+        }
+
+        /* 除湿剤交換 */
+        .event-medication {
+            background-color: #fce7f3;
+            color: #9f1239;
+        }
+
+        /* 修理 */
+
+        .btn-add-record {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border: none;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .timeline-card {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 60px;
+        }
+
+        .timeline-icon {
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        footer {
+            background-color: var(--brown-color);
+            color: white;
+            padding: 40px 0;
+            margin-top: 80px;
+            border-radius: 50px 50px 0 0;
+        }
+
+        .filter-btn {
+            padding: 8px 18px;
+            border-radius: 50px;
+            border: 1px solid #ddd;
+            background: white;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+
+        .filter-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="bi bi-hanger"></i> ハンガーtimes
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="indexホーム.html">ホーム</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pet-guide-listハンガー図鑑.html">ハンガー図鑑</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pet-care-guide使い方ガイド.html">使い方ガイド</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pet-guide-qaQ&A.html">Q&A</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pet-guide-form管理記録.html">管理記録</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#">メンテナンス記録</a></li>
+                </ul>
+                <a href="login.html" class="btn btn-outline-success ms-3 rounded-pill fw-bold btn-login text-decoration-none">
+                    <i class="bi bi-person-circle"></i> ログイン
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <div class="container text-center">
+            <h1 class="display-4 fw-bold mb-3" style="color: var(--brown-color);">
+                <i class="bi bi-tools"></i> コレクション・メンテナンス記録
+            </h1>
+            <p class="lead" style="color: var(--brown-color);">愛用のハンガーを一生モノに。状態管理と手入れのログ</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="pet-profile-card">
+            <div class="row align-items-center">
+                <div class="col-md-3 text-center mb-3 mb-md-0">
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=200&h=200&auto=format&fit=crop"
+                        alt="木製ハンガー" class="pet-avatar">
+                    <h4 class="mt-3 mb-2 fw-bold" style="color: var(--brown-color);">プレミアム・オーク</h4>
+                    <p class="text-muted mb-0">ハンドメイド木製 12本セット</p>
+                </div>
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="col-6 col-md-3 mb-3">
+                            <small class="text-muted d-block">使用年数</small>
+                            <strong class="h5" style="color: var(--brown-color);">5年2ヶ月</strong>
+                        </div>
+                        <div class="col-6 col-md-3 mb-3">
+                            <small class="text-muted d-block">総本数</small>
+                            <strong class="h5" style="color: var(--brown-color);">48本</strong>
+                        </div>
+                        <div class="col-6 col-md-3 mb-3">
+                            <small class="text-muted d-block">最終手入れ</small>
+                            <strong class="h5" style="color: var(--brown-color);">2024/11/01</strong>
+                        </div>
+                        <div class="col-6 col-md-3 mb-3">
+                            <small class="text-muted d-block">次回の防虫剤交換</small>
+                            <strong class="h5" style="color: #e63946;">残り15日</strong>
+                        </div>
+                    </div>
+                    <div class="mt-2">
+                        <span class="info-badge"><i class="bi bi-check-circle"></i> 状態: 良好</span>
+                        <span class="info-badge"><i class="bi bi-droplet"></i> 湿度管理: 45% (最適)</span>
+                        <span class="info-badge"><i class="bi bi-shield-lock"></i> 防虫加工済み</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4 mb-4">
+            <div class="col-md-3 col-sm-6">
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: rgba(139, 94, 52, 0.1); color: var(--primary-color);">
+                        <i class="bi bi-box-seam"></i>
+                    </div>
+                    <div class="stat-number">12</div>
+                    <p class="text-muted mb-0">今月追加した本数</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: rgba(245, 158, 11, 0.1); color: var(--secondary-color);">
+                        <i class="bi bi-stars"></i>
+                    </div>
+                    <div class="stat-number">95%</div>
+                    <p class="text-muted mb-0">クローゼット統一率</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;">
+                        <i class="bi bi-hammer"></i>
+                    </div>
+                    <div class="stat-number">3回</div>
+                    <p class="text-muted mb-0">リペア実施数</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: rgba(236, 72, 153, 0.1); color: #ec4899;">
+                        <i class="bi bi-currency-yen"></i>
+                    </div>
+                    <div class="stat-number">¥42,000</div>
+                    <p class="text-muted mb-0">総投資額</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4 mb-4">
+            <div class="col-md-6">
+                <div class="progress-card">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h5 class="fw-bold mb-0" style="color: var(--brown-color);">
+                            <i class="bi bi-water text-info"></i> クローゼット除湿容量
+                        </h5>
+                        <span class="fw-bold">85% / 100%</span>
+                    </div>
+                    <div class="progress progress-custom">
+                        <div class="progress-bar progress-bar-custom" style="width: 85%">まもなく交換</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="progress-card">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h5 class="fw-bold mb-0" style="color: var(--brown-color);">
+                            <i class="bi bi-percent text-success"></i> 収納スペース効率
+                        </h5>
+                        <span class="fw-bold">60%</span>
+                    </div>
+                    <div class="progress progress-custom">
+                        <div class="progress-bar bg-success" style="width: 60%">余裕あり</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="record-table">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="fw-bold mb-0" style="color: var(--brown-color);">メンテナンス履歴</h4>
+                        <button class="btn btn-add-record">新規記録</button>
+                    </div>
+
+                    <div class="mb-3">
+                        <button class="filter-btn active">すべて</button>
+                        <button class="filter-btn">オイル塗布</button>
+                        <button class="filter-btn">金具調整</button>
+                        <button class="filter-btn">除湿剤</button>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="table table-custom">
+                            <thead>
+                                <tr>
+                                    <th>日付</th>
+                                    <th>項目</th>
+                                    <th>対象</th>
+                                    <th>備考</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>2024/11/18</td>
+                                    <td><span class="event-badge event-weight">除湿剤</span></td>
+                                    <td>メインクローゼット</td>
+                                    <td>大容量タイプへ変更</td>
+                                </tr>
+                                <tr>
+                                    <td>2024/11/01</td>
+                                    <td><span class="event-badge event-vaccine">オイル</span></td>
+                                    <td>オーク材シリーズ</td>
+                                    <td>蜜蝋ワックスで磨き上げ</td>
+                                </tr>
+                                <tr>
+                                    <td>2024/10/15</td>
+                                    <td><span class="event-badge event-medication">修理</span></td>
+                                    <td>フック部</td>
+                                    <td>緩みの増し締め実施</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="progress-card">
+                    <h5 class="fw-bold mb-3"><i class="bi bi-lightning"></i> クイック・アクション</h5>
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-outline-brown rounded-pill"
+                            style="border-color: var(--primary-color); color: var(--primary-color);">お手入れ方法を見る</button>
+                        <button class="btn btn-outline-dark rounded-pill">新しいハンガーを探す</button>
+                        <button class="btn btn-outline-danger rounded-pill">期限切れ防虫剤をチェック</button>
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <div class="timeline-card">
+                        <div class="timeline-icon bg-primary"><i class="bi bi-camera"></i></div>
+                        <div class="timeline-date">昨日</div>
+                        <h6 class="fw-bold mb-1">コレクション写真を追加</h6>
+                        <p class="text-muted small">冬物コート用に厚型ハンガーを導入</p>
+                    </div>
+                    <div class="timeline-card">
+                        <div class="timeline-icon bg-warning"><i class="bi bi-exclamation-circle"></i></div>
+                        <div class="timeline-date">3日前</div>
+                        <h6 class="fw-bold mb-1">点検アラート</h6>
+                        <p class="text-muted small">湿度が55%を超えました。換気を推奨します。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5 class="fw-bold mb-3">
+                        <i class="bi bi-heart-fill text-danger"></i> ハンガーtimes
+                    </h5>
+                    <p>ハンガーで衣服と暮らしを応援する情報サイト</p>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h6 class="fw-bold mb-3">サイト情報</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white text-decoration-none">About</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">利用規約</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">プライバシー</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h6 class="fw-bold mb-3">サポート</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white text-decoration-none">ヘルプ</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">お問い合わせ</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h6 class="fw-bold mb-3">フォローする</h6>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-white fs-4"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="text-white fs-4"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="text-white fs-4"><i class="bi bi-youtube"></i></a>
+                        <a href="#" class="text-white fs-4"><i class="bi bi-facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-light">
+            <p class="text-center mb-0">&copy; 2024 PetLife. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // --- 1. フィルタリング機能 ---
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const tableRows = document.querySelectorAll('.table-custom tbody tr');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    // アクティブクラスの切り替え
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+
+                    const filterValue = this.textContent.trim();
+
+                    tableRows.forEach(row => {
+                        const category = row.querySelector('.event-badge').textContent.trim();
+                        if (filterValue === 'すべて' || category === filterValue) {
+                            row.style.display = '';
+                        } else {
+                            row.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // --- 2. 新規レコード追加（デモ用） ---
+            const addBtn = document.querySelector('.btn-add-record');
+            const tableBody = document.querySelector('.table-custom tbody');
+
+            addBtn.addEventListener('click', function () {
+                const today = new Date().toLocaleDateString('ja-JP');
+
+                // 実際には入力フォームから取得しますが、ここではデモ用にランダム追加
+                const newRow = document.createElement('tr');
+                newRow.innerHTML = `
+            <td>${today}</td>
+            <td><span class="event-badge event-checkup">点検</span></td>
+            <td>全コレクション</td>
+            <td>定期的な外観チェック完了</td>
+        `;
+
+                // 先頭に追加
+                tableBody.prepend(newRow);
+
+                // 統計情報の数字をアニメーションで増やす
+                updateStatNumber('.stat-card:first-child .stat-number');
+                alert('新しいメンテナンス記録を保存しました！');
+            });
+
+            // --- 3. 統計数値の更新アニメーション ---
+            function updateStatNumber(selector) {
+                const el = document.querySelector(selector);
+                let currentNum = parseInt(el.textContent);
+                el.textContent = currentNum + 1;
+                el.style.color = 'var(--primary-color)';
+                setTimeout(() => { el.style.color = 'var(--brown-color)'; }, 500);
+            }
+
+            // --- 4. 進捗バーのインタラクティブ効果 ---
+            // 例：除湿剤のバーをクリックすると「交換」シミュレーション
+            const progressCard = document.querySelector('.progress-card');
+            progressCard.style.cursor = 'pointer';
+            progressCard.addEventListener('click', function () {
+                const bar = this.querySelector('.progress-bar');
+                const label = this.querySelector('.fw-bold:last-child');
+
+                bar.style.width = '0%';
+                bar.textContent = '交換完了';
+                label.textContent = '0% / 100%';
+
+                setTimeout(() => {
+                    bar.style.width = '10%';
+                    label.textContent = '10% / 100%';
+                    bar.textContent = '新品';
+                }, 1000);
+            });
+
+            // --- 5. ログ出力（動作確認用） ---
+            console.log("Hanger Times: メンテナンス管理システムが正常に起動しました。");
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+>>>>>>> 7f7e55f (課題)
+</html>

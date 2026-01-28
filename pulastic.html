@@ -1,0 +1,611 @@
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ハンガーtimes - プラスチックハンガー詳細</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary-color: #10b981;
+            --secondary-color: #f59e0b;
+            --accent-color: #fb923c;
+            --brown-color: #78350f;
+            --hanger-beige: #fff2e5;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+            background-color: var(--hanger-beige);
+            color: #4b5563;
+        }
+
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            color: var(--primary-color) !important;
+            font-size: 1.5rem;
+        }
+
+        .nav-link {
+            color: var(--brown-color) !important;
+            font-weight: 500;
+            margin: 0 10px;
+        }
+
+        .nav-link.active {
+            color: var(--primary-color) !important;
+            font-weight: bold;
+        }
+
+        .hanger-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1600180758891-e83e2ba4b7da?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            height: 350px;
+            border-radius: 0 0 50px 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hanger-main-card {
+            background: white;
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            margin-top: -60px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .spec-item {
+            background: #fdf2f2;
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #fee2e2;
+            height: 100%;
+        }
+
+        .spec-value {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--brown-color);
+            display: block;
+            margin-top: 5px;
+        }
+
+        .info-sidebar-card {
+            background: white;
+            border-radius: 25px;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            margin-bottom: 25px;
+        }
+
+        .comparison-table {
+            background: #f9fafb;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        footer {
+            background-color: #5d5353;
+            color: white;
+            padding: 60px 0 30px;
+            margin-top: 80px;
+            border-radius: 50px 50px 0 0;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="bi bi-hanger"></i> ハンガーtimes
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="indexホーム.html">ホーム</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pet-guide-detailハンガー種類.html">ハンガー種類</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pet-care-guide使い方ガイド.html">使い方ガイド</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pet-guide-qaQ&A.html">Q&A</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pet-guide-form管理記録.html">管理記録</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pet-guide-recordレビュー.html">メンテナンス記録</a></li>
+                </ul>
+                <a href="login.html" class="btn btn-outline-success ms-3 rounded-pill fw-bold btn-login text-decoration-none">
+                    <i class="bi bi-person-circle"></i> ログイン
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hanger-hero">
+        <div class="container">
+            <h1 class="display-4 fw-bold">Plastic Hanger</h1>
+            <p class="fs-5">軽量で毎日使える、ベーシックなプラスチックハンガー</p>
+        </div>
+    </header>
+
+    <div class="container mt-4">
+        <div class="info-card text-center">
+            <h5 class="fw-bold mb-3" style="color: var(--brown-color);">
+                <i class="bi bi-arrow-left-circle"></i> 関連ハンガー
+            </h5>
+            <a href="pet-guide-detailハンガー種類.html" class="btn btn-outline-success btn-lg rounded-pill px-5">
+                <i class="bi bi-hanger"></i> 他のハンガー種類を見る
+            </a>
+        </div>
+    </div>
+
+    <div class="container mb-5 ">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="hanger-main-card mb-4">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <span class="badge bg-success px-3 py-2 rounded-pill">定番アイテム</span>
+                        <button class="btn btn-outline-danger btn-sm rounded-pill"><i class="bi bi-heart-fill"></i>
+                            お気に入り</button>
+                    </div>
+
+                    <h2 class="fw-bold mb-3" style="color: var(--brown-color);">プラスチックハンガーの特性</h2>
+                    <p class="text-muted mb-5">
+                        プラスチックハンガーはとても軽く、リーズナブルで扱いやすい基本アイテムです。
+                        Tシャツやブラウス、日常着の収納に適しており、家族分を揃えてもコスパに優れています。
+                    </p>
+
+                    <div class="row g-3 mb-5 text-center">
+                        <div class="col-6 col-md-3">
+                            <div class="spec-item">
+                                <small class="text-muted">おすすめ衣類</small>
+                                <span class="spec-value">Tシャツ・シャツ</span>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="spec-item">
+                                <small class="text-muted">主な素材</small>
+                                <span class="spec-value">プラスチック</span>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="spec-item">
+                                <small class="text-muted">耐久性</small>
+                                <span class="spec-value">2〜5年</span>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="spec-item">
+                                <small class="text-muted">軽さ</small>
+                                <span class="spec-value">非常に軽い</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4 class="fw-bold mb-4">メリット・デメリット比較</h4>
+                    <div class="table-responsive comparison-table p-3 mb-5">
+                        <table class="table table-borderless mb-0">
+                            <thead>
+                                <tr class="border-bottom">
+                                    <th class="text-success">メリット</th>
+                                    <th class="text-danger">デメリット</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><i class="bi bi-check-circle-fill text-success me-2"></i>とにかく軽く使いやすい</td>
+                                    <td><i class="bi bi-x-circle-fill text-danger me-2"></i>重い衣類には不向き</td>
+                                </tr>
+                                <tr>
+                                    <td><i class="bi bi-check-circle-fill text-success me-2"></i>お手頃価格で揃えやすい</td>
+                                    <td><i class="bi bi-x-circle-fill text-danger me-2"></i>耐久性は素材による</td>
+                                </tr>
+                                <tr>
+                                    <td><i class="bi bi-check-circle-fill text-success me-2"></i>洗濯干しにも便利</td>
+                                    <td><i class="bi bi-x-circle-fill text-danger me-2"></i>環境負荷が気になる場合あり</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="info-sidebar-card">
+                    <h5 class="fw-bold mb-3"><i class="bi bi-tools text-primary"></i> メンテナンス</h5>
+                    <p class="small text-muted">長く使うための3つのコツ：</p>
+                    <ul class="small ps-3">
+                        <li class="mb-2">汚れたら中性洗剤で軽くふく</li>
+                        <li class="mb-2">直射日光での退色を防ぐ</li>
+                        <li>割れやすいので過負荷を避ける</li>
+                    </ul>
+                </div>
+
+                <div class="info-sidebar-card">
+                    <h5 class="fw-bold mb-3"><i class="bi bi-bar-chart-fill text-warning"></i> ハンガー比較</h5>
+                    <div class="mb-3">
+                        <label class="small text-muted d-flex justify-content-between">軽さ <span>95%</span></label>
+                        <div class="progress" style="height: 6px;">
+                            <div class="progress-bar bg-warning" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="small text-muted d-flex justify-content-between">コスパ <span>90%</span></label>
+                        <div class="progress" style="height: 6px;">
+                            <div class="progress-bar bg-info" style="width: 90%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-sidebar-card text-center bg-white border border-success">
+                    <p class="small fw-bold mb-3">あなたにぴったりの<br>プラスチックハンガーをご提案</p>
+                    <button class="btn btn-success w-100 rounded-pill mb-2">おすすめ商品を見る</button>
+                    <button class="btn btn-outline-secondary w-100 rounded-pill btn-sm">カラーサンプル請求</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5 class="fw-bold mb-3">
+                        <i class="bi bi-heart-fill text-danger"></i> ハンガーtimes
+                    </h5>
+                    <p>ハンガーで衣服と暮らしを応援する情報サイト</p>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h6 class="fw-bold mb-3">サイト情報</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white text-decoration-none">About</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">利用規約</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">プライバシー</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h6 class="fw-bold mb-3">サポート</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white text-decoration-none">ヘルプ</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">お問い合わせ</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h6 class="fw-bold mb-3">フォローする</h6>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-white fs-4"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="text-white fs-4"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="text-white fs-4"><i class="bi bi-youtube"></i></a>
+                        <a href="#" class="text-white fs-4"><i class="bi bi-facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-light">
+            <p class="text-center mb-0">&copy; 2024 PetLife. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
+=======
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ハンガーtimes - プラスチックハンガー詳細</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary-color: #10b981;
+            --secondary-color: #f59e0b;
+            --accent-color: #fb923c;
+            --brown-color: #78350f;
+            --hanger-beige: #fff2e5;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+            background-color: var(--hanger-beige);
+            color: #4b5563;
+        }
+
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            color: var(--primary-color) !important;
+            font-size: 1.5rem;
+        }
+
+        .nav-link {
+            color: var(--brown-color) !important;
+            font-weight: 500;
+            margin: 0 10px;
+        }
+
+        .nav-link.active {
+            color: var(--primary-color) !important;
+            font-weight: bold;
+        }
+
+        .hanger-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1600180758891-e83e2ba4b7da?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            height: 350px;
+            border-radius: 0 0 50px 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hanger-main-card {
+            background: white;
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            margin-top: -60px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .spec-item {
+            background: #fdf2f2;
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #fee2e2;
+            height: 100%;
+        }
+
+        .spec-value {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--brown-color);
+            display: block;
+            margin-top: 5px;
+        }
+
+        .info-sidebar-card {
+            background: white;
+            border-radius: 25px;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            margin-bottom: 25px;
+        }
+
+        .comparison-table {
+            background: #f9fafb;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        footer {
+            background-color: #5d5353;
+            color: white;
+            padding: 60px 0 30px;
+            margin-top: 80px;
+            border-radius: 50px 50px 0 0;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="bi bi-hanger"></i> ハンガーtimes
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="indexホーム.html">ホーム</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pet-guide-detailハンガー種類.html">ハンガー種類</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pet-care-guide使い方ガイド.html">使い方ガイド</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pet-guide-qaQ&A.html">Q&A</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pet-guide-form管理記録.html">管理記録</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pet-guide-recordレビュー.html">メンテナンス記録</a></li>
+                </ul>
+                <a href="login.html" class="btn btn-outline-success ms-3 rounded-pill fw-bold btn-login text-decoration-none">
+                    <i class="bi bi-person-circle"></i> ログイン
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hanger-hero">
+        <div class="container">
+            <h1 class="display-4 fw-bold">Plastic Hanger</h1>
+            <p class="fs-5">軽量で毎日使える、ベーシックなプラスチックハンガー</p>
+        </div>
+    </header>
+
+    <div class="container mt-4">
+        <div class="info-card text-center">
+            <h5 class="fw-bold mb-3" style="color: var(--brown-color);">
+                <i class="bi bi-arrow-left-circle"></i> 関連ハンガー
+            </h5>
+            <a href="pet-guide-detailハンガー種類.html" class="btn btn-outline-success btn-lg rounded-pill px-5">
+                <i class="bi bi-hanger"></i> 他のハンガー種類を見る
+            </a>
+        </div>
+    </div>
+
+    <div class="container mb-5 ">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="hanger-main-card mb-4">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <span class="badge bg-success px-3 py-2 rounded-pill">定番アイテム</span>
+                        <button class="btn btn-outline-danger btn-sm rounded-pill"><i class="bi bi-heart-fill"></i>
+                            お気に入り</button>
+                    </div>
+
+                    <h2 class="fw-bold mb-3" style="color: var(--brown-color);">プラスチックハンガーの特性</h2>
+                    <p class="text-muted mb-5">
+                        プラスチックハンガーはとても軽く、リーズナブルで扱いやすい基本アイテムです。
+                        Tシャツやブラウス、日常着の収納に適しており、家族分を揃えてもコスパに優れています。
+                    </p>
+
+                    <div class="row g-3 mb-5 text-center">
+                        <div class="col-6 col-md-3">
+                            <div class="spec-item">
+                                <small class="text-muted">おすすめ衣類</small>
+                                <span class="spec-value">Tシャツ・シャツ</span>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="spec-item">
+                                <small class="text-muted">主な素材</small>
+                                <span class="spec-value">プラスチック</span>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="spec-item">
+                                <small class="text-muted">耐久性</small>
+                                <span class="spec-value">2〜5年</span>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="spec-item">
+                                <small class="text-muted">軽さ</small>
+                                <span class="spec-value">非常に軽い</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4 class="fw-bold mb-4">メリット・デメリット比較</h4>
+                    <div class="table-responsive comparison-table p-3 mb-5">
+                        <table class="table table-borderless mb-0">
+                            <thead>
+                                <tr class="border-bottom">
+                                    <th class="text-success">メリット</th>
+                                    <th class="text-danger">デメリット</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><i class="bi bi-check-circle-fill text-success me-2"></i>とにかく軽く使いやすい</td>
+                                    <td><i class="bi bi-x-circle-fill text-danger me-2"></i>重い衣類には不向き</td>
+                                </tr>
+                                <tr>
+                                    <td><i class="bi bi-check-circle-fill text-success me-2"></i>お手頃価格で揃えやすい</td>
+                                    <td><i class="bi bi-x-circle-fill text-danger me-2"></i>耐久性は素材による</td>
+                                </tr>
+                                <tr>
+                                    <td><i class="bi bi-check-circle-fill text-success me-2"></i>洗濯干しにも便利</td>
+                                    <td><i class="bi bi-x-circle-fill text-danger me-2"></i>環境負荷が気になる場合あり</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="info-sidebar-card">
+                    <h5 class="fw-bold mb-3"><i class="bi bi-tools text-primary"></i> メンテナンス</h5>
+                    <p class="small text-muted">長く使うための3つのコツ：</p>
+                    <ul class="small ps-3">
+                        <li class="mb-2">汚れたら中性洗剤で軽くふく</li>
+                        <li class="mb-2">直射日光での退色を防ぐ</li>
+                        <li>割れやすいので過負荷を避ける</li>
+                    </ul>
+                </div>
+
+                <div class="info-sidebar-card">
+                    <h5 class="fw-bold mb-3"><i class="bi bi-bar-chart-fill text-warning"></i> ハンガー比較</h5>
+                    <div class="mb-3">
+                        <label class="small text-muted d-flex justify-content-between">軽さ <span>95%</span></label>
+                        <div class="progress" style="height: 6px;">
+                            <div class="progress-bar bg-warning" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="small text-muted d-flex justify-content-between">コスパ <span>90%</span></label>
+                        <div class="progress" style="height: 6px;">
+                            <div class="progress-bar bg-info" style="width: 90%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-sidebar-card text-center bg-white border border-success">
+                    <p class="small fw-bold mb-3">あなたにぴったりの<br>プラスチックハンガーをご提案</p>
+                    <button class="btn btn-success w-100 rounded-pill mb-2">おすすめ商品を見る</button>
+                    <button class="btn btn-outline-secondary w-100 rounded-pill btn-sm">カラーサンプル請求</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5 class="fw-bold mb-3">
+                        <i class="bi bi-heart-fill text-danger"></i> ハンガーtimes
+                    </h5>
+                    <p>ハンガーで衣服と暮らしを応援する情報サイト</p>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h6 class="fw-bold mb-3">サイト情報</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white text-decoration-none">About</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">利用規約</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">プライバシー</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h6 class="fw-bold mb-3">サポート</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white text-decoration-none">ヘルプ</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">お問い合わせ</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h6 class="fw-bold mb-3">フォローする</h6>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-white fs-4"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="text-white fs-4"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="text-white fs-4"><i class="bi bi-youtube"></i></a>
+                        <a href="#" class="text-white fs-4"><i class="bi bi-facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-light">
+            <p class="text-center mb-0">&copy; 2024 PetLife. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
+>>>>>>> 7f7e55f (課題)
