@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -111,13 +112,16 @@
             font-size: 0.8rem;
         }
 
-        .divider::before, .divider::after {
+        .divider::before,
+        .divider::after {
             content: '';
             flex: 1;
             border-bottom: 1px solid #eee;
         }
 
-        .divider span { padding: 0 10px; }
+        .divider span {
+            padding: 0 10px;
+        }
 
         .social-login {
             display: flex;
@@ -137,7 +141,10 @@
             transition: 0.3s;
         }
 
-        .btn-social:hover { background-color: #fdfdfd; border-color: var(--secondary-color); }
+        .btn-social:hover {
+            background-color: #fdfdfd;
+            border-color: var(--secondary-color);
+        }
 
         .signup-link {
             text-align: center;
@@ -152,6 +159,7 @@
         }
     </style>
 </head>
+
 <body>
 
     <div class="login-card">
@@ -196,14 +204,14 @@
     </div>
 
     <script>
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
             e.preventDefault();
             const btn = this.querySelector('.btn-login');
             btn.innerHTML = '認証中...';
             btn.style.opacity = '0.7';
-            
+
             setTimeout(() => {
-                window.location.href = 'index.html'; 
+                window.location.href = 'index.html';
             }, 1000);
         });
     </script>
