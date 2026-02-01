@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ハンガーtimes - ハンガー種類</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-     <link rel="icon" href="img/favicon (4).ico">
+    <link rel="icon" href="img/favicon (4).ico">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <style>
         :root {
@@ -100,11 +100,40 @@
             margin-top: 80px;
             border-radius: 50px 50px 0 0;
         }
+
+        /* ===== カルーセル操作部分を黒色に変更 ===== */
+
+        /* 左右の矢印アイコンを黒に */
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            filter: invert(1) brightness(0);
+        }
+
+        /* 左右ボタンの背景を少し濃く（見やすさUP） */
+        .carousel-control-prev,
+        .carousel-control-next {
+            background-color: rgba(0, 0, 0, 0.15);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        /* 下のスライド丸（インジケーター）を黒に */
+        .carousel-indicators [data-bs-target] {
+            background-color: #000;
+        }
+
+        /* アクティブ中の丸はさらに濃く */
+        .carousel-indicators .active {
+            background-color: #000;
+        }
     </style>
 </head>
 
 <body>
-     <nav class="navbar navbar-expand-lg sticky-top">
+    <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">
                 <i class="bi bi-hanger"></i> ハンガーtimes

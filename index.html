@@ -217,6 +217,24 @@
             font-weight: bold;
             color: var(--primary-color);
         }
+
+        /* セクションごとの余白を共通化（上下に大きなスペース） */
+section {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+/* 統計カードセクション専用の調整 */
+.stats-container {
+    padding: 80px 0; /* 上下の余白 */
+    margin: 0;      /* 不要なマージンをリセット */
+}
+
+/* カード内のテキストの間隔 */
+.pet-card p {
+    line-height: 1.8;
+    margin-bottom: 25px !important;
+}
     </style>
 </head>
 
@@ -246,15 +264,19 @@
         </div>
     </nav>
 
+    <!-- ✨ レイアウト変更①：ヒーロー 配置反転 -->
     <div class="hero-section">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6 mb-4 mb-lg-0">
+                <div class="col-lg-6 order-lg-1 order-2 text-center">
+                    <img src="img/AdobeStock_525777435-1536x1025.jpeg" class="hero-image" alt="ハンガーイラスト">
+                </div>
+                <div class="col-lg-6 order-lg-2 order-1 mb-4 mb-lg-0">
                     <h1 class="display-3 fw-bold mb-4" style="color: var(--brown-color);">
                         あなたに合う<br>ハンガーを<br>見つけよう
                     </h1>
                     <p class="lead mb-4" style="color: #78350f;">
-                        衣服に合うハンガーをサポートする情報サイト。<br>適したハンガー、ハンガーのかけ方を詳しく解説
+                        衣服に合うハンガーをサポートする情報サイト。
                     </p>
                     <div class="d-flex gap-3">
                         <button class="btn btn-primary-custom">
@@ -265,43 +287,49 @@
                         </button>
                     </div>
                 </div>
-                <div class="col-lg-6 text-center">
-                    <img src="img/AdobeStock_525777435-1536x1025.jpeg" class="hero-image" alt="ハンガーイラスト">
-                </div>
             </div>
         </div>
     </div>
 
-    <div class="container">
-        <div class="row g-4 mb-5">
-            <div class="col-md-3">
-                <div class="stats-box">
-                    <div class="stats-number">200+</div>
-                    <p class="text-muted mb-0">ハンガー種類</p>
+    <!-- ✨ レイアウト変更②：統計をカード化＆中央寄せ -->
+    <div class="container mb-5">
+        <div class="row g-4 justify-content-center ">
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="card text-center shadow-sm p-3">
+                    <div class="card-body">
+                        <div class="stats-number">200+</div>
+                        <p class="text-muted mb-0">ハンガー種類</p>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="stats-box">
-                    <div class="stats-number">10,000+</div>
-                    <p class="text-muted mb-0">ハンガー記録</p>
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="card text-center shadow-sm p-3">
+                    <div class="card-body">
+                        <div class="stats-number">10,000+</div>
+                        <p class="text-muted mb-0">ハンガー記録</p>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="stats-box">
-                    <div class="stats-number">3,000+</div>
-                    <p class="text-muted mb-0">Q&A投稿</p>
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="card text-center shadow-sm p-3">
+                    <div class="card-body">
+                        <div class="stats-number">3,000+</div>
+                        <p class="text-muted mb-0">Q&A投稿</p>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="stats-box">
-                    <div class="stats-number">50,000+</div>
-                    <p class="text-muted mb-0">ユーザー数</p>
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="card text-center shadow-sm p-3">
+                    <div class="card-body">
+                        <div class="stats-number">50,000+</div>
+                        <p class="text-muted mb-0">ユーザー数</p>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <section class="mb-5">
-            <div class="row g-4">
+        <section class="container mb-5">
+             <div class="row g-4">
                 <div class="col-md-4">
                     <div class="pet-card">
                         <div class="pet-icon">
@@ -372,7 +400,7 @@
                             </p>
                             <div class="d-flex justify-content-around mb-3">
                                 <div>
-                                    <small class="text-muted d-block">飼いやすさ</small>
+                                    <small class="text-muted d-block">使いやすさ</small>
                                     <div class="text-warning">★★★★★</div>
                                 </div>
                                 <div>
@@ -424,7 +452,7 @@
                             <span class="category-badge" style="background: #14b8a6;">肩ぽこ防止タイプ</span>
                             <h4 class="fw-bold mb-3">マワハンガー エコノミック</h4>
                             <p class="text-muted mb-4">
-                                人体に近いカーブデザインが施されており、襟のないシャツやニット、前開きのカーディガンなどにおすすめのハンガー
+                                人体に近いカーブデザインが施されており、襟なしシャツやニット、前開きのカーディガンにおすすめのハンガー
                             </p>
                             <div class="d-flex justify-content-around mb-3">
                                 <div>
@@ -471,9 +499,8 @@
                     </div>
                 </div>
             </div>
-        </section>
 
-        <section class="mb-5">
+            <div class="mt-4">
             <h2 class="text-center fw-bold section-title" style="color: var(--brown-color);">
                 <i class="bi bi-check-circle-fill text-success"></i> ハンガーガイドの特徴
             </h2>
@@ -514,6 +541,7 @@
                     </div>
                 </div>
             </div>
+        </div>
         </section>
     </div>
 
