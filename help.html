@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
 
     <style>
+        /* サイト共通のカラー変数 */
         :root {
             --primary-color: #10b981;
             --secondary-color: #f59e0b;
@@ -22,6 +23,7 @@
             background-color: #fff2e5;
         }
 
+        /* ===== ナビゲーションバー ===== */
         .navbar {
             background-color: white;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -43,15 +45,18 @@
             color: var(--primary-color) !important;
         }
 
+        /* ===== ヒーローセクション（ページ上部の見出しエリア） ===== */
         .hero-section {
+            /* 緑からオレンジへのグラデーション背景 */
             background: linear-gradient(135deg,
                     rgba(220, 252, 231, 0.9),
                     rgba(254, 215, 170, 0.9));
             padding: 70px 0;
-            border-radius: 0 0 50px 50px;
+            border-radius: 0 0 50px 50px; /* 下側の角を丸くして柔らかい印象に */
             margin-bottom: 50px;
         }
 
+        /* セクションタイトルの装飾（下線など） */
         .section-title {
             position: relative;
             display: inline-block;
@@ -70,20 +75,24 @@
             border-radius: 2px;
         }
 
+        /* ===== ヘルプカード（各項目の白いボックス） ===== */
         .help-card {
             background: white;
             border-radius: 25px;
             padding: 30px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-            height: 100%;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* 浮き出たような影 */
+            height: 100%; /* 全てのカードの高さを揃える */
+            transition: transform 0.3s ease; /* マウスホバー時の動き用 */
         }
 
+        /* アイコンのスタイル */
         .help-icon {
             font-size: 2.5rem;
             color: var(--primary-color);
             margin-bottom: 15px;
         }
 
+        /* ===== フッター ===== */
         footer {
             background-color: #8e7f7f;
             color: #d8e1f1;
@@ -112,15 +121,13 @@
                     <li class="nav-item"><a class="nav-link" href="pet-guide-form管理記録.html">管理記録</a></li>
                     <li class="nav-item"><a class="nav-link" href="pet-guide-recordレビュー.html">メンテナンス記録</a></li>
                 </ul>
-                <a href="login.html"
-                    class="btn btn-outline-success ms-3 rounded-pill fw-bold btn-login text-decoration-none">
+                <a href="login.html" class="btn btn-outline-success ms-3 rounded-pill fw-bold btn-login text-decoration-none">
                     <i class="bi bi-person-circle"></i> ログイン
                 </a>
             </div>
         </div>
     </nav>
 
-    <!-- ヒーロー -->
     <section class="hero-section text-center">
         <div class="container">
             <h1 class="display-5 fw-bold mb-3">
@@ -132,7 +139,6 @@
         </div>
     </section>
 
-    <!-- ヘルプ内容 -->
     <div class="container">
         <div class="row g-4">
 
@@ -181,15 +187,19 @@
         </div>
     </div>
 
+    <!-- フッター -->
     <footer>
         <div class="container">
             <div class="row">
+                <!-- サイト概要 -->
                 <div class="col-md-4 mb-4">
                     <h5 class="fw-bold mb-3">
                         <i class="bi bi-heart-fill text-danger"></i> ハンガーtimes
                     </h5>
                     <p>ハンガーで衣服と暮らしを応援する情報サイト</p>
                 </div>
+
+                <!-- サイト情報リンク -->
                 <div class="col-md-2 mb-4">
                     <h6 class="fw-bold mb-3">サイト情報</h6>
                     <ul class="list-unstyled">
@@ -198,6 +208,8 @@
                         <li><a href="#" class="text-white text-decoration-none">プライバシー</a></li>
                     </ul>
                 </div>
+
+                <!-- サポートリンク -->
                 <div class="col-md-2 mb-4">
                     <h6 class="fw-bold mb-3">サポート</h6>
                     <ul class="list-unstyled">
@@ -206,6 +218,8 @@
                         <li><a href="faq.html" class="text-white text-decoration-none">FAQ</a></li>
                     </ul>
                 </div>
+
+                <!-- ソーシャルリンク -->
                 <div class="col-md-4 mb-4">
                     <h6 class="fw-bold mb-3">フォローする</h6>
                     <div class="d-flex gap-3">

@@ -9,82 +9,93 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <style>
+        /* 1. サイト全体で使い回す共通の色（変数）の定義 */
         :root {
-            --primary-color: #10b981;
-            --secondary-color: #f59e0b;
-            --accent-color: #fb923c;
-            --brown-color: #78350f;
+            --primary-color: #10b981;   /* メインの緑色（清潔感） */
+            --secondary-color: #f59e0b; /* アクセントの黄色（警告・注目） */
+            --accent-color: #fb923c;    /* サブのオレンジ色 */
+            --brown-color: #78350f;     /* テキストや木製イメージの茶色 */
         }
 
+        /* 2. ページ全体の基本スタイル */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #fff2e5;
+            background-color: #fff2e5; /* 柔らかい印象の薄いベージュ背景 */
         }
 
+        /* 3. ナビゲーションバーの設定 */
         .navbar {
             background-color: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* 下方向に軽い影を付けて浮かす */
         }
 
+        /* サイト名のロゴスタイル */
         .navbar-brand {
             font-weight: bold;
-            color: var(--primary-color) !important;
+            color: var(--primary-color) !important; /* 変数の緑を適用 */
             font-size: 1.5rem;
         }
 
+        /* ナビゲーションリンクの基本状態 */
         .nav-link {
             color: var(--brown-color) !important;
             font-weight: 500;
             margin: 0 10px;
         }
 
+        /* マウスを乗せた時、または現在表示中のページの強調 */
         .nav-link:hover,
         .nav-link.active {
             color: var(--primary-color) !important;
         }
 
+        /* 4. ページ上部の大きな見出しエリア（ヘッダー） */
         .page-header {
+            /* グラデーションと画像を重ねて、文字の視認性を確保 */
             background:
                 linear-gradient(135deg,
                     rgba(220, 252, 231, 0.88) 0%,
                     rgba(254, 215, 170, 0.88) 100%),
                 url("img/re-_01.webp");
-            background-size: cover;
-            background-position: center;
+            background-size: cover;      /* 画像を枠いっぱいに広げる */
+            background-position: center; /* 画像の中心を表示 */
             background-repeat: no-repeat;
-
-            padding: 60px 0;
-            border-radius: 0 0 50px 50px;
+            padding: 60px 0;             /* 上下に余白を作る */
+            border-radius: 0 0 50px 50px; /* 下側の角だけ丸めて柔らかさを演出 */
             margin-bottom: 40px;
         }
 
+        /* 5. プロフィール情報のカード */
         .pet-profile-card {
             background: white;
             border-radius: 30px;
             padding: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* 強い影で立体感を出す */
             margin-bottom: 30px;
         }
 
+        /* ハンガー等のアイコン画像 */
         .pet-avatar {
             width: 120px;
             height: 120px;
             border-radius: 20px;
-            object-fit: cover;
-            border: 5px solid var(--primary-color);
+            object-fit: cover; /* 縦横比を維持したまま枠に収める */
+            border: 5px solid var(--primary-color); /* メインカラーの太枠 */
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
         }
 
+        /* 小さな情報タグ（状態：良好など） */
         .info-badge {
-            background: rgba(139, 94, 52, 0.1);
+            background: rgba(139, 94, 52, 0.1); /* 薄い茶色の背景 */
             color: var(--primary-color);
             padding: 8px 20px;
-            border-radius: 50px;
+            border-radius: 50px; /* カプセル型の形 */
             font-weight: 600;
             display: inline-block;
             margin: 5px;
         }
 
+        /* 6. 数値統計カード（総本数や投資額など） */
         .stat-card {
             background: white;
             border-radius: 20px;
@@ -92,30 +103,34 @@
             text-align: center;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
             height: 100%;
-            transition: all 0.3s ease;
+            transition: all 0.3s ease; /* 変化を滑らかにする設定 */
         }
 
+        /* カードをマウスホバーした時のアニメーション */
         .stat-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-5px); /* 少し上に持ち上げる */
         }
 
+        /* 統計内の円形アイコン */
         .stat-icon {
             width: 60px;
             height: 60px;
             border-radius: 50%;
-            display: flex;
+            display: flex;       /* アイコンを中央に配置するため */
             align-items: center;
             justify-content: center;
             margin: 0 auto 15px;
             font-size: 1.8rem;
         }
 
+        /* 強調する大きな数字 */
         .stat-number {
             font-size: 2rem;
             font-weight: bold;
             color: var(--brown-color);
         }
 
+        /* 7. 進捗バー（除湿容量など）のコンテナ */
         .progress-card {
             background: white;
             border-radius: 25px;
@@ -124,18 +139,22 @@
             margin-bottom: 20px;
         }
 
+        /* 進捗バーの外枠（溝の部分） */
         .progress-custom {
             height: 25px;
             border-radius: 50px;
             background-color: #f3f4f6;
         }
 
+        /* 進捗バーの中身（色が付いている部分） */
         .progress-bar-custom {
+            /* 緑からオレンジへのグラデーションを適用 */
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             border-radius: 50px;
             font-weight: bold;
         }
 
+        /* 8. 履歴テーブルの設定 */
         .record-table {
             background: white;
             border-radius: 25px;
@@ -144,10 +163,12 @@
             margin-bottom: 30px;
         }
 
+        /* テーブルの見出し部分のグラデーション */
         .table-custom thead {
             background: linear-gradient(135deg, #faedcd, #e9edc9);
         }
 
+        /* テーブル内の各項目のラベル（バッジ） */
         .event-badge {
             padding: 6px 15px;
             border-radius: 50px;
@@ -156,32 +177,17 @@
             display: inline-block;
         }
 
-        /* メンテナンス種類別の色 */
-        .event-checkup {
-            background-color: #dbeafe;
-            color: #1e40af;
-        }
+        /* メンテナンス種類別の背景色と文字色のセット */
+        /* 除湿剤用 */
+        .event-checkup { background-color: #dbeafe; color: #1e40af; }
+        /* オイル用 */
+        .event-vaccine { background-color: #fef3c7; color: #92400e; }
+        /* 修理用 */
+        .event-weight { background-color: #dcfce7; color: #166534; }
+        /* その他/点検用 */
+        .event-medication { background-color: #fce7f3; color: #9f1239; }
 
-        /* 点検 */
-        .event-vaccine {
-            background-color: #fef3c7;
-            color: #92400e;
-        }
-
-        /* オイル/塗装 */
-        .event-weight {
-            background-color: #dcfce7;
-            color: #166534;
-        }
-
-        /* 除湿剤交換 */
-        .event-medication {
-            background-color: #fce7f3;
-            color: #9f1239;
-        }
-
-        /* 修理 */
-
+        /* 9. 新規記録ボタンのスタイル */
         .btn-add-record {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             border: none;
@@ -192,16 +198,18 @@
             transition: 0.3s;
         }
 
+        /* 10. タイムライン（履歴ログ）のカード */
         .timeline-card {
             background: white;
             border-radius: 20px;
             padding: 20px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
             margin-bottom: 15px;
-            position: relative;
-            padding-left: 60px;
+            position: relative; /* アイコンを絶対配置するための基準点 */
+            padding-left: 60px;  /* 左側のアイコン用スペース */
         }
 
+        /* タイムライン上の丸いアイコン */
         .timeline-icon {
             position: absolute;
             left: 20px;
@@ -215,14 +223,16 @@
             color: white;
         }
 
+        /* 11. ページ下部のフッター設定 */
         footer {
             background-color: #8e7f7f;
             color: #d8e1f1;
             padding: 40px 0;
             margin-top: 80px;
-            border-radius: 50px 50px 0 0;
+            border-radius: 50px 50px 0 0; /* 上側の角を丸めてモダンに */
         }
 
+        /* 12. フィルターボタン（すべて、オイル等） */
         .filter-btn {
             padding: 8px 18px;
             border-radius: 50px;
@@ -232,6 +242,7 @@
             margin-bottom: 5px;
         }
 
+        /* 選択されている時のフィルターボタン */
         .filter-btn.active {
             background-color: var(--primary-color);
             color: white;
