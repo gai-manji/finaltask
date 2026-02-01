@@ -278,6 +278,23 @@
             background-color: var(--primary-color);
             color: white;
         }
+
+        .search-box .d-flex {
+            flex-wrap: nowrap;
+            /* 折り返し禁止 */
+        }
+
+        .search-box input {
+            min-width: 0;
+            /* flexでのはみ出し防止 */
+        }
+
+        .search-box button {
+            white-space: nowrap;
+            /* 「検 索」みたいな縦割れ防止 */
+            flex-shrink: 0;
+            /* ボタン幅を維持 */
+        }
     </style>
 </head>
 
@@ -319,7 +336,7 @@
             </div>
 
             <div class="search-box">
-                <div class="d-flex align-items-center">
+                <div class="d-flex align-items-center flex-nowrap">
                     <input type="text" class="flex-grow-1" placeholder="質問を検索...（例：滑りにくいハンガー、スペース節約）">
                     <button type="button"><i class="bi bi-search"></i> 検索</button>
                 </div>

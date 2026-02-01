@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ハンガーtimes - ハンガー図鑑</title>
-     <link rel="icon" href="img/favicon (4).ico">
+    <link rel="icon" href="img/favicon (4).ico">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <style>
@@ -178,19 +178,6 @@
                     </div>
 
                     <div class="filter-section">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="easy" value="easy"> 初心者向け
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="easy" value="normal"> 普通
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="easy" value="hard"> 上級者向け
-                        </div>
-
-                    </div>
-
-                    <div class="filter-section">
                         <h6 class="fw-bold mb-3">対応衣類</h6>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" value="shirt"> シャツ
@@ -320,21 +307,17 @@
         const materialChecks = document.querySelectorAll(
             '.filter-section:nth-of-type(1) input[type="checkbox"]'
         );
-        const levelRadios = document.querySelectorAll(
-            '.filter-section:nth-of-type(2) input[type="radio"]'
-        );
+
         const clothesChecks = document.querySelectorAll(
-            '.filter-section:nth-of-type(3) input[type="checkbox"]'
+            '.filter-section:nth-of-type(2) input[type="checkbox"]'
         );
+
         const cards = document.querySelectorAll('.pet-card');
 
         function filterCards() {
             const materials = [...materialChecks]
                 .filter(c => c.checked)
                 .map(c => c.value);
-
-            const level = [...levelRadios]
-                .find(r => r.checked)?.value;
 
             const clothes = [...clothesChecks]
                 .filter(c => c.checked)
@@ -344,14 +327,11 @@
                 const matchMaterial =
                     materials.length === 0 || materials.includes(card.dataset.material);
 
-                const matchLevel =
-                    !level || card.dataset.level === level;
-
                 const matchClothes =
                     clothes.length === 0 || clothes.includes(card.dataset.clothes);
 
                 card.style.display =
-                    matchMaterial && matchLevel && matchClothes ? 'block' : 'none';
+                    matchMaterial && matchClothes ? 'block' : 'none';
             });
         }
 
@@ -359,5 +339,6 @@
             .querySelectorAll('.filter-sidebar input')
             .forEach(input => input.addEventListener('change', filterCards));
     </script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
