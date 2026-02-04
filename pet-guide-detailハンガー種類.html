@@ -59,12 +59,30 @@
             z-index: 1;
         }
 
+        /* カードのデザインを「左ライン強調型」にアップデート */
         .info-card {
             background: white;
-            border-radius: 25px;
+            border-radius: 20px;
+            /* 少し角を丸く */
             padding: 30px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-            margin-bottom: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            height: 100%;
+            border: none;
+            /* 一旦ボーダーをリセット */
+            border-left: 8px solid var(--primary-color);
+            /* 左側に太いラインを追加 */
+            transition: transform 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5);
+            /* 軽く浮き上がるアニメーション */
+        }
+
+        .info-card h4 {
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
         }
 
         .accordion-button:not(.collapsed) {
@@ -130,23 +148,12 @@
             background-color: #000;
         }
 
-        :root {
-            --primary-color: #10b981;
-            --brown-color: #78350f;
-            --bg-light: #fff2e5;
-        }
-
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            background-color: var(--bg-light);
-        }
-
         /* 変更点1：ヒーローエリアのスタイル */
         .hero-section {
             background: white;
             border-radius: 40px;
             padding: 30px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
             margin-bottom: 40px;
         }
 
@@ -162,7 +169,7 @@
             border-radius: 25px;
             padding: 25px;
             height: 100%;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
 
         .footer-custom {
@@ -215,10 +222,12 @@
                                 <img src="img/mawahanger-silhouette1.jpg" alt="hangar２">
                             </div>
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#hangerCarousel" data-bs-slide="prev">
+                        <button class="carousel-control-prev" type="button" data-bs-target="#hangerCarousel"
+                            data-bs-slide="prev">
                             <span class="carousel-control-prev-icon bg-dark rounded-circle p-3"></span>
                         </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#hangerCarousel" data-bs-slide="next">
+                        <button class="carousel-control-next" type="button" data-bs-target="#hangerCarousel"
+                            data-bs-slide="next">
                             <span class="carousel-control-next-icon bg-dark rounded-circle p-3"></span>
                         </button>
                     </div>
@@ -241,23 +250,46 @@
         <div class="row g-4 mb-5">
             <div class="col-md-6">
                 <div class="info-card">
-                    <h4 class="fw-bold text-success mb-3"><i class="bi bi-magic me-2"></i>日常のケア</h4>
-                    <p class="small">長く愛用するためのメンテナンス方法です。</p>
+                    <h4 class="fw-bold text-success mb-3">
+                        <i class="bi bi-magic me-2"></i>日常のケア
+                    </h4>
+                    <p class="text-muted small mb-4">長く愛用するためのメンテナンス方法です。</p>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><i class="bi bi-dot"></i> <strong>水拭き:</strong> 表面のベタつきは固く絞った布で。</li>
-                        <li class="mb-2"><i class="bi bi-dot"></i> <strong>室内利用:</strong> 直射日光はコーティング劣化の原因になります。</li>
-                        <li class="mb-2"><i class="bi bi-dot"></i> <strong>間隔調整:</strong> コーティング同士の癒着を防ぐため隙間を開けて。</li>
+                        <li class="mb-3 d-flex align-items-start">
+                            <i class="bi bi-check2-circle text-success me-2 mt-1"></i>
+                            <span><strong>水拭き:</strong> 表面のベタつきは固く絞った布で。</span>
+                        </li>
+                        <li class="mb-3 d-flex align-items-start">
+                            <i class="bi bi-check2-circle text-success me-2 mt-1"></i>
+                            <span><strong>室内利用:</strong> 直射日光はコーティング劣化の原因に。</span>
+                        </li>
+                        <li class="mb-3 d-flex align-items-start">
+                            <i class="bi bi-check2-circle text-success me-2 mt-1"></i>
+                            <span><strong>間隔調整:</strong> 癒着を防ぐため隙間を開けて。</span>
+                        </li>
                     </ul>
                 </div>
             </div>
+
             <div class="col-md-6">
-                <div class="info-card border-top border-success border-5">
-                    <h4 class="fw-bold text-success mb-3"><i class="bi bi-award me-2"></i>服のしつけ</h4>
-                    <p class="small">服を「正しい形」に保つためのポイントです。</p>
+                <div class="info-card">
+                    <h4 class="fw-bold text-success mb-3">
+                        <i class="bi bi-award me-2"></i>服のしつけ
+                    </h4>
+                    <p class="text-muted small mb-4">服を「理想の形」に保つためのポイントです。</p>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i><strong>肩ライン:</strong> 人間の肩に近い曲線で型崩れを防止。</li>
-                        <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i><strong>姿勢:</strong> ズレ落ちをゼロにし、クローゼットの姿勢を正す。</li>
-                        <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i><strong>統一感:</strong> 同じ高さで揃えることで通気性を確保。</li>
+                        <li class="mb-3 d-flex align-items-start">
+                            <i class="bi bi-check2-circle text-success me-2 mt-1"></i>
+                            <span><strong>肩ライン:</strong> 人間の肩に近い曲線で型崩れを防止。</span>
+                        </li>
+                        <li class="mb-3 d-flex align-items-start">
+                            <i class="bi bi-check2-circle text-success me-2 mt-1"></i>
+                            <span><strong>姿勢:</strong> ズレ落ちをゼロにし、クローゼットを整える。</span>
+                        </li>
+                        <li class="mb-3 d-flex align-items-start">
+                            <i class="bi bi-check2-circle text-success me-2 mt-1"></i>
+                            <span><strong>統一感:</strong> 同じ高さで揃えることで通気性を確保。</span>
+                        </li>
                     </ul>
                 </div>
             </div>
