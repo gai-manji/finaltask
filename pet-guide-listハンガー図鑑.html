@@ -303,38 +303,45 @@
             <p class="text-center mb-0">&copy; 2026 ハンガーtimes. All rights reserved.</p>
         </div>
     </footer>
-    <script>
+   <script>
+        // 1. 各フィルター項目のDOM要素を取得
         const materialChecks = document.querySelectorAll(
             '.filter-section:nth-of-type(1) input[type="checkbox"]'
         );
-
         const clothesChecks = document.querySelectorAll(
             '.filter-section:nth-of-type(2) input[type="checkbox"]'
         );
-
         const cards = document.querySelectorAll('.pet-card');
 
+        // 2. フィルタリングの実行関数
         function filterCards() {
+            // チェックされている素材の値（例: ["wood", "metal"]）を取得
             const materials = [...materialChecks]
                 .filter(c => c.checked)
                 .map(c => c.value);
 
+            // チェックされている衣類の種類を取得
             const clothes = [...clothesChecks]
                 .filter(c => c.checked)
                 .map(c => c.value);
 
+            // 全てのカードに対してループを回し、表示・非表示を判定
             cards.forEach(card => {
+                // 素材の条件に合うか（何も選択されていない場合は全表示）
                 const matchMaterial =
                     materials.length === 0 || materials.includes(card.dataset.material);
 
+                // 衣類の条件に合うか（何も選択されていない場合は全表示）
                 const matchClothes =
                     clothes.length === 0 || clothes.includes(card.dataset.clothes);
 
+                // 両方の条件を満たせば block（表示）、そうでなければ none（非表示）
                 card.style.display =
                     matchMaterial && matchClothes ? 'block' : 'none';
             });
         }
 
+        // 3. サイドバー内のすべてのチェックボックスに、変更時のイベントを登録
         document
             .querySelectorAll('.filter-sidebar input')
             .forEach(input => input.addEventListener('change', filterCards));

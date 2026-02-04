@@ -129,6 +129,49 @@
         .carousel-indicators .active {
             background-color: #000;
         }
+
+        :root {
+            --primary-color: #10b981;
+            --brown-color: #78350f;
+            --bg-light: #fff2e5;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--bg-light);
+        }
+
+        /* 変更点1：ヒーローエリアのスタイル */
+        .hero-section {
+            background: white;
+            border-radius: 40px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+        }
+
+        .hero-image img {
+            border-radius: 25px;
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .info-card {
+            background: white;
+            border-radius: 25px;
+            padding: 25px;
+            height: 100%;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .footer-custom {
+            background-color: #8e7f7f;
+            color: white;
+            padding: 50px 0 20px;
+            border-top-left-radius: 60px;
+            border-top-right-radius: 60px;
+        }
     </style>
 
 </head>
@@ -159,190 +202,88 @@
         </div>
     </nav>
 
-    <div class="container mt-4">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">ホーム</a></li>
-                <li class="breadcrumb-item"><a href="pet-guide-listハンガー図鑑.html">ハンガー図鑑</a></li>
-                <li class="breadcrumb-item active">マワハンガー シルエット</li>
-            </ol>
-        </nav>
-
-        <div id="petCarousel" class="carousel slide mb-4" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#petCarousel" data-bs-slide-to="0" class="active"></button>
-                <button type="button" data-bs-target="#petCarousel" data-bs-slide-to="1"></button>
-                <button type="button" data-bs-target="#petCarousel" data-bs-slide-to="2"></button>
-            </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="img/62631ef003070ac272fa730188b49dd9_w (1).jpeg" class="d-block w-100"
-                        alt="マワハンガー シルエット アイコン">
-                </div>
-                <div class="carousel-item">
-                    <img src="img/mawahanger-silhouette1.jpg" class="d-block w-100" alt="マワハンガー シルエット 実物">
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#petCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon"></span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#petCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon"></span>
-            </button>
-        </div>
-
-        <div class="pet-header">
+    <div class="container">
+        <div class="hero-section">
             <div class="row align-items-center">
-                <div class="col-md-8">
-                    <span class="badge"
-                        style="background: #dcfce7; color: #10b981; padding: 10px 20px; border-radius: 50px; font-size: 1rem;">初心者向け</span>
-                    <h1 class="display-4 fw-bold mt-3 mb-3" style="color: var(--brown-color);">マワハンガー シルエット</h1>
-                    <p class="lead text-muted">ドイツ製の高品質なハンガー</p>
+                <div class="col-md-7 hero-image">
+                    <div id="hangerCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="img/62631ef003070ac272fa730188b49dd9_w (1).jpeg" alt="MAWA">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="img/mawahanger-silhouette1.jpg" alt="MAWA Real">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#hangerCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon bg-dark rounded-circle p-3"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#hangerCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon bg-dark rounded-circle p-3"></span>
+                        </button>
+                    </div>
                 </div>
-                <div class="col-md-4 text-md-end">
-                    <button class="btn btn-success btn-lg rounded-pill mb-2 w-100"><i class="bi bi-heart"></i>
-                        お気に入り</button>
-                    <button class="btn btn-outline-warning btn-lg rounded-pill w-100"><i class="bi bi-share"></i>
-                        シェア</button>
+                <div class="col-md-5 ps-md-5 mt-4 mt-md-0">
+                    <span class="badge bg-success mb-2">ドイツ製</span>
+                    <h1 class="display-5 fw-bold mb-3" style="color: var(--brown-color);">シルエット 41</h1>
+                    <p class="text-muted mb-4">ブラウスやシャツの肩を美しく保つ、滑らないハンガーの代名詞。</p>
+                    <div class="mb-4">
+                        <span class="h3 fw-bold">¥1,200</span> <span class="text-muted">〜 (5本セット)</span>
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-success btn-lg rounded-pill">お気に入りに追加</button>
+                        <button class="btn btn-outline-dark rounded-pill">シェアする</button>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-lg-8">
+        <div class="row g-4 mb-5">
+            <div class="col-md-6">
                 <div class="info-card">
-                    <h3 class="fw-bold mb-4" style="color: var(--brown-color);"><i
-                            class="bi bi-info-circle-fill text-success"></i> 基本情報</h3>
-                    <div class="row g-3 mb-4">
-                        <div class="col-md-3">
-                            <div class="stat-badge"><strong>サイズ</strong><br>中型</div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="stat-badge"><strong>体重</strong><br>75~80g</div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="stat-badge"><strong>寿命</strong><br>数年~10年以上</div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="stat-badge"><strong>原産地</strong><br>ドイツ</div>
-                        </div>
-                    </div>
-                    <p>肩の部分が丸みを帯びていて、服の肩崩れを防いでくれる。ジャケットやブラウスにぴったり特殊なPVCコーティングで、ツルツル素材の服でもズレ落ちにくい。キャミソールやシルク素材も安心。軽いのにしっかりしてて、長く使えるよ。金属製だけど服に跡がつきにくいのも◎
-                    </p>
-                </div>
-
-                <div class="accordion mb-4" id="petAccordion">
-                    <div class="accordion-item mb-3" style="border: none; border-radius: 20px;">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#character">
-                                <i class="bi bi-heart me-2"></i> 特徴
-                            </button>
-                        </h2>
-                        <div id="character" class="accordion-collapse collapse show" data-bs-parent="#petAccordion">
-                            <div class="accordion-body">
-                                <h5 class="fw-bold mb-3 mt-4">特徴</h5>
-                                <ul>
-                                    <li>なだらかな肩ライン</li>
-                                    <li>すべり止め加工</li>
-                                    <li>スリムで省スペース</li>
-                                    <li>軽くて丈夫</li>
-                                    <li>サイズとカラーが豊富</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="accordion-item mb-3" style="border: none; border-radius: 20px;">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#care">
-                                <i class="bi bi-clipboard-heart me-2"></i> ケア
-                            </button>
-                        </h2>
-                        <div id="care" class="accordion-collapse collapse" data-bs-parent="#petAccordion">
-                            <div class="accordion-body">
-                                <h5 class="fw-bold mb-3">日常のケア</h5>
-                                <ul>
-                                    <li><strong>拭く:</strong> 表面のPVCコーティングは水拭き</li>
-                                    <li><strong>直射日光を避ける:</strong>長時間日光に当てると、コーティングが劣化しやすくなる</li>
-                                    <li><strong>重ねすぎに注意:</strong> ハンガー同士をギュウギュウに詰めると、コーティングがこすれて傷つくことがある</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="accordion-item" style="border: none; border-radius: 20px;">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#training">
-                                <i class="bi bi-award me-2"></i> しつけ
-                            </button>
-                        </h2>
-                        <div id="training" class="accordion-collapse collapse" data-bs-parent="#petAccordion">
-                            <div class="accordion-body">
-                                <h5 class="fw-bold mb-3">服のしつけのポイント</h5>
-                                <ul>
-                                    <li><strong>型崩れ防止:</strong> 肩のラインをきれいに保つことで、服の形を正しくしつける</li>
-                                    <li><strong>すべり止め機能:</strong> 服がズレ落ちないように支えて、だらしなくならない＝姿勢を正す</li>
-                                    <li><strong>サイズに合った設計:</strong> 服にぴったり合うサイズで、無理なく自然な形をキープ</li>
-                                    <li><strong>収納時の整列:</strong> スリムで統一感のある見た目は、クローゼットの中を整然と保つしつけの一環</li>
-                                </ul>
-                                <h5 class="fw-bold mb-3 mt-4">その他のことについて</h5>
-                                <ul>
-                                    <li>通気性の確保</li>
-                                    <li>素材に合わせた優しさ</li>
-                                    <li>習慣づけのサポート</li>
-                                    <li>シワ防止</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                    <h4 class="fw-bold text-success mb-3"><i class="bi bi-magic me-2"></i>日常のケア</h4>
+                    <p class="small">長く愛用するためのメンテナンス方法です。</p>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="bi bi-dot"></i> <strong>水拭き:</strong> 表面のベタつきは固く絞った布で。</li>
+                        <li class="mb-2"><i class="bi bi-dot"></i> <strong>室内利用:</strong> 直射日光はコーティング劣化の原因になります。</li>
+                        <li class="mb-2"><i class="bi bi-dot"></i> <strong>間隔調整:</strong> コーティング同士の癒着を防ぐため隙間を開けて。</li>
+                    </ul>
                 </div>
             </div>
-
-            <div class="col-lg-4">
-                <div class="sidebar-card">
-                    <h5 class="fw-bold mb-4" style="color: var(--brown-color);"><i
-                            class="bi bi-star-fill text-warning"></i> 使いやすさ評価</h5>
-                    <div class="mb-3">
-                        <div class="d-flex justify-content-between mb-2"><span>初心者向け</span><strong>★★★★☆</strong></div>
-                        <div class="progress" style="height: 10px; border-radius: 10px;">
-                            <div class="progress-bar" style="width: 80%; background: var(--primary-color);"></div>
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <div class="d-flex justify-content-between mb-2"><span>お手入れ</span><strong>★★★☆☆</strong></div>
-                        <div class="progress" style="height: 10px; border-radius: 10px;">
-                            <div class="progress-bar" style="width: 60%; background: var(--secondary-color);"></div>
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <div class="d-flex justify-content-between mb-2"><span>しつけ</span><strong>★★★★☆</strong></div>
-                        <div class="progress" style="height: 10px; border-radius: 10px;">
-                            <div class="progress-bar" style="width: 60%; background: var(--primary-color);"></div>
-                        </div>
-                    </div>
+            <div class="col-md-6">
+                <div class="info-card border-top border-success border-5">
+                    <h4 class="fw-bold text-success mb-3"><i class="bi bi-award me-2"></i>服のしつけ</h4>
+                    <p class="small">服を「正しい形」に保つためのポイントです。</p>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i><strong>肩ライン:</strong> 人間の肩に近い曲線で型崩れを防止。</li>
+                        <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i><strong>姿勢:</strong> ズレ落ちをゼロにし、クローゼットの姿勢を正す。</li>
+                        <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i><strong>統一感:</strong> 同じ高さで揃えることで通気性を確保。</li>
+                    </ul>
                 </div>
+            </div>
+        </div>
 
-                <div class="sidebar-card">
-                    <h5 class="fw-bold mb-4" style="color: var(--brown-color);"><i class="bi bi-cash-coin"></i> 飼育費用の目安
-                    </h5>
-                    <div class="mb-2 d-flex justify-content-between"><span>初期費用</span><strong>約1,000〜5,000円程度</strong>
-                    </div>
-                    <div class="mb-2 d-flex justify-content-between"><span>月額費用</span><strong>足りなくなったら足す</strong></div>
-                </div>
-
-                <div class="sidebar-card">
-                    <h5 class="fw-bold mb-3" style="color: var(--brown-color);"><i class="bi bi-tags"></i> タグ</h5>
-                    <div class="d-flex flex-wrap gap-2">
-                        <span class="badge bg-success">#ハンガー</span>
-                        <span class="badge bg-warning text-dark">#中型</span>
-                        <span class="badge bg-info">#初心者OK</span>
-                        <span class="badge bg-danger">#ジャケット</span>
-                        <span class="badge bg-primary">#ブライス</span>
-                    </div>
-                </div>
+        <div class="info-card mb-5">
+            <h4 class="fw-bold mb-4">基本スペック</h4>
+            <div class="table-responsive">
+                <table class="table align-middle">
+                    <thead class="table-light">
+                        <tr>
+                            <th>サイズ</th>
+                            <th>重量</th>
+                            <th>材質</th>
+                            <th>推奨する服</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>幅40.5cm × 厚さ1.0cm</td>
+                            <td>約75g</td>
+                            <td>スチール(PVCコーティング)</td>
+                            <td>ブラウス、シャツ、ニット</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
